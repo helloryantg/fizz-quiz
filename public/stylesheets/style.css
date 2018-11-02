@@ -22,3 +22,15 @@ a {
 /* #welcome-page {
 
 } */
+
+#categories-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categories {
+  height: 200px;
+  width: 200px;
+  border: 1px solid red;
+}
