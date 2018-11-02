@@ -1,8 +1,20 @@
+html {
+  height: 100vh;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  height: 100vh;
+  background-color: rgb(247, 247, 247);
 }
 
 a {
   color: #00B7FF;
+}
+
+#welcome-logo {
+  margin-top: 20%;
+  margin-bottom: 20%;
 }
