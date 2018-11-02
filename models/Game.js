@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 
 const gameSchema = new Schema({
     questionCount: Number,
-    correctCount: Number
+    correctCount: Number,
+    user: { type: Schema.Types.ObjectId, ref: 'User' }
 }, {
         timestamps: true
     });
