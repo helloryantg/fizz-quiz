@@ -1,7 +1,9 @@
 var express = require('express');
 var router = express.Router();
 var passport = require('passport');
+var gamesCtrl = require('../controllers/gamesController');
 
+const generalURL = 'https://opentdb.com/api.php?amount=1&category=9';
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -29,12 +31,7 @@ router.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
-router.get('/games', function(req, res) {
-  res.render('games/categories');
-});
-
-router.get('/games', function(req, res) {
-  res.render('games/main', {});
-})
+router.get('/games', gamesCtrl.showCategories);
+router.get('/games', gamesCtrl.showQuestions);
 
 module.exports = router;
