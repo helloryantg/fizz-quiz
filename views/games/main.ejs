@@ -1,8 +1,17 @@
 <%- include('../partials/header') %>
 
 <div id="main-page">
-    <div id="top-text">Get Ready!</div>
-    <div id="img-ctn">3</div>
+    <input id="genQ" type="submit" value="HIT ME" onclick="generateQuestion()">
+    
+    <div id="q-ctn">
+        <div id="questions">This is a sample question</div>
+    </div>
+    <div id="a-ctn">
+        <button type="submit" class='answerButtons'><div id="ans1">First</div></button>
+        <button type="submit" class='answerButtons'><div id="ans2">Second</div></button>
+        <button type="submit" class='answerButtons'><div id="ans3">Third</div></button>
+        <button type="submit" class='answerButtons'><div id="ans4">Fourth</div></button>
+    </div>
 </div>
 
 <%- include('../partials/footer') %>
