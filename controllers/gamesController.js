@@ -10,5 +10,5 @@ function showCategories(req, res) {
 };
 
 function showQuestions(req, res) {
-    res.render('games/main');
+    res.render('games/main', {catId: req.params.catId});
 };

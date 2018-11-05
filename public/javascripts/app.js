@@ -17,7 +17,7 @@ var animalsCategory;
 renderGame();
 
 function generateQuestion(e) {
-    fetch('https://opentdb.com/api.php?amount=1&category=27')
+    fetch(`https://opentdb.com/api.php?amount=1&category=${catId}`)
     .then(response => response.json())
     .then(json => renderQuestion(json));
     
