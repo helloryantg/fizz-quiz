@@ -10,10 +10,17 @@ var genQ;
 var correctAnswer;
 
 // Event listeners
-beginCountdown();
+// beginCountdown();
 
+function generateQuestion() {
+    fetch('https://opentdb.com/api.php?amount=1&category=9')
+    .then(response => response.json())
+    .then(json => renderQuestion(json));
+}
+
+// Functions
 function beginCountdown() {
-    timeRemaining = randomNumber(5, 10);
+    timeRemaining = randomNumber(15, 180);
     gameStart = setInterval(function() {
         countDown();
         console.log(timeRemaining)
@@ -36,13 +43,6 @@ function stopInterval() {
     clearInterval(gameStart);
 }
 
-function generateQuestion() {
-    fetch('https://opentdb.com/api.php?amount=1&category=9')
-    .then(response => response.json())
-    .then(json => renderQuestion(json));
-}
-
-// Functions
 function renderQuestion(q) {
     var answersArr = [
         q.results[0].correct_answer,
@@ -61,6 +61,8 @@ function renderQuestion(q) {
 
     correctAnswer = q.results[0].correct_answer;
     console.log(correctAnswer);
+    changedAnswer = correctAnswer.toString();
+    console.log(changedAnswer);
 }
     
 function shuffleArray(arr) {
@@ -82,6 +84,7 @@ function shuffleArray(arr) {
     
 function checkAnswer(e) {
     if (e.target.innerHTML === correctAnswer) {
+        // This is not accepting the innerHTML
         console.log('Correct!');
         nextQuestion();
     } else {
