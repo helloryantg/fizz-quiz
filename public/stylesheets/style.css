@@ -19,18 +19,31 @@ a {
   margin-bottom: 20%;
 }
 
-/* #welcome-page {
 
-} */
-
-#categories-page {
+.categories-ctn {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: space-evenly;
+  height: 350px;
 }
 
 .categories {
-  height: 200px;
+  height: 160px;
   width: 200px;
-  border: 1px solid red;
+  border: 1px solid black;
+  border-radius: 15px;
+  padding-top: 140px;
+}
+
+.categories a {
+  text-decoration: none;
+  color: black;
+}
+
+#pick-category {
+  height: 100px;
+  margin-top: 100px;
+}
+
+#random-cat {
+  border: 5px dashed black;
 }
