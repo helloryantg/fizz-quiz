@@ -1,5 +1,6 @@
 // Cached DOM elements
 var firstTimer;
+var timer;
 var timeRemaining;
 var gameStart;
 var question;
@@ -10,26 +11,51 @@ var ans3;
 var genQ;
 var correctAnswer;
 
-// Event listeners
+var animalsCategory;
 
-beginCountdown();
+// Event listeners
 renderGame();
 
-function generateQuestion() {
+function generateQuestion(e) {
     fetch('https://opentdb.com/api.php?amount=1&category=27')
     .then(response => response.json())
     .then(json => renderQuestion(json));
+    
+    // Animals 27
+    // General 9
+    // Science/Nature 17
+    // History 23
+    // Movies 11
+    // Random 10
+    // TV 14
+    // Sports 1
+    // Music 12
 }
 
 // Functions
 function renderGame() {
     // set gameover and timer displays to none
+    firstTimerCountdown();
+}
+
+function firstTimerCountdown() {
+    firstTimer = 3;
+    timer = setInterval(function() {
+        firstTimer--;
+        console.log(firstTimer);
+        if (firstTimer === 0) {
+            console.log('BEGIN GAME');
+            clearInterval(timer);
+            beginCountdown();
+            // remove timer page
+        }
+    }, 1000);
 }
 
 function beginCountdown() {
     timeRemaining = randomNumber(5,10);
     gameStart = setInterval(function() {
-        countDown();
+        timeRemaining--;
         console.log(timeRemaining)
         if (timeRemaining === 0) {
             console.log('GAME OVER');
@@ -42,11 +68,6 @@ function beginCountdown() {
 // Randomizes number between min and max numbers
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max - min) + 1) + min;
-}
-
-// Counts down 1 second per call
-function countDown() {
-    timeRemaining--;
 }
 
 // Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
@@ -140,4 +161,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
+
+    animalsCategory = document.getElementById('animals');
 });
