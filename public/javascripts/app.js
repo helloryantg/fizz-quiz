@@ -1,28 +1,21 @@
 // Cached DOM elements
 var question;
+var ans0;
 var ans1;
 var ans2;
 var ans3;
-var ans4;
 var genQ;
 var correctAnswer;
-var answerButtons;
 
 // Event listeners
-
 function generateQuestion() {
     fetch('https://opentdb.com/api.php?amount=1&category=9')
     .then(response => response.json())
     .then(json => renderQuestion(json));
 }
 
-answerButtons.addEventListener('click', checkAnswer);
-
 // Functions
 function renderQuestion(q) {
-    correctAnswer = q.results[0].correct_answer;
-    console.log(correctAnswer);
-    
     var answersArr = [
         q.results[0].correct_answer,
         q.results[0].incorrect_answers[0],
@@ -33,10 +26,13 @@ function renderQuestion(q) {
     var shuffledAnswers = shuffleArray(answersArr);
     
     question.innerHTML = q.results[0].question;      
-    ans1.innerHTML = shuffledAnswers[0];
-    ans2.innerHTML = shuffledAnswers[1];
-    ans3.innerHTML = shuffledAnswers[2];
-    ans4.innerHTML = shuffledAnswers[3];
+    ans0.innerHTML = shuffledAnswers[0];
+    ans1.innerHTML = shuffledAnswers[1];
+    ans2.innerHTML = shuffledAnswers[2];
+    ans3.innerHTML = shuffledAnswers[3];
+
+    correctAnswer = q.results[0].correct_answer;
+    console.log(correctAnswer);
 }
     
 function shuffleArray(arr) {
@@ -57,17 +53,31 @@ function shuffleArray(arr) {
 }
     
 function checkAnswer(e) {
-    if (e.target.innerHTML === correctAnswer);
-    console.log('Correct!');
+    if (e.target.innerHTML === correctAnswer) {
+        console.log('Correct!');
+        nextQuestion();
+    } else {
+        console.log('Try again!');
+    }
+}
+
+function nextQuestion() {
+    generateQuestion(function(){
+        renderQuestion();
+    });
 }
     
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function(e) {
     question = document.getElementById('questions');
+    ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
-    ans4 = document.getElementById('ans4');
     getQ = document.getElementById('genQ'); // This can be removed after TimeIntervals are placed.
-    answerButtons = document.querySelectorAll(".answerButtons");
+
+    ans0.addEventListener('click', checkAnswer);
+    ans1.addEventListener('click', checkAnswer);
+    ans2.addEventListener('click', checkAnswer);
+    ans3.addEventListener('click', checkAnswer);
 });
