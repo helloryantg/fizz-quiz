@@ -40,7 +40,7 @@ function beginCountdown() {
 }
 
 // Randomizes number between min and max numbers
-function randomNumber(min, max){
+function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + 1) + min;
 }
 
@@ -57,9 +57,8 @@ function renderQuestion(q) {
         q.results[0].incorrect_answers[1],
         q.results[0].incorrect_answers[2]
     ];
-    
-    var shuffledAnswers = shuffleArray(answersArr);
-    
+
+    var shuffledAnswers = shuffleArray(answersArr);    
     correctAnswer = q.results[0].correct_answer;
     console.log(correctAnswer);
     
@@ -89,18 +88,18 @@ function shuffleArray(arr) {
     var currentIndex = newArr.length;
     var tempValue;
     var randomIndex;
-    
+
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        
+
         tempValue = newArr[currentIndex];
         newArr[currentIndex] = newArr[randomIndex];
         newArr[randomIndex] = tempValue;
     }
     return newArr;
 }
-    
+
 // Checks the answer for when the event listener is clicked
 function checkAnswer(e) {
     if (e.target.innerHTML === correctAnswer) {
@@ -114,7 +113,7 @@ function checkAnswer(e) {
 
 // Goes to the next question
 function nextQuestion() {
-    generateQuestion(function(){
+    generateQuestion(function () {
         renderQuestion();
     });
 }
@@ -124,7 +123,7 @@ function gameOver() {
 }
     
 // DOM elements retreived in page load event
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function (e) {
     firstTimer = document.getElementById('first-timer');
     question = document.getElementById('questions');
     
