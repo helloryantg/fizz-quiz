@@ -13,6 +13,9 @@ var correctAnswer;
 
 var animalsCategory;
 
+var allQuestions;
+
+
 // Event listeners
 renderGame();
 
