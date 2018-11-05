@@ -1,4 +1,6 @@
 // Cached DOM elements
+var timeRemaining;
+var gameStart;
 var question;
 var ans0;
 var ans1;
@@ -8,6 +10,32 @@ var genQ;
 var correctAnswer;
 
 // Event listeners
+beginCountdown();
+
+function beginCountdown() {
+    timeRemaining = randomNumber(5, 10);
+    gameStart = setInterval(function() {
+        countDown();
+        console.log(timeRemaining)
+        if (timeRemaining === 0) {
+            console.log('GAME OVER');
+            stopInterval();
+        }
+    }, 1000);
+}
+
+function randomNumber(min, max){
+    return Math.floor(Math.random() * (max - min) + 1) + min;
+}
+
+function countDown() {
+    timeRemaining--;
+}
+
+function stopInterval() {
+    clearInterval(gameStart);
+}
+
 function generateQuestion() {
     fetch('https://opentdb.com/api.php?amount=1&category=9')
     .then(response => response.json())
