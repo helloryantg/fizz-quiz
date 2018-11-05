@@ -1,8 +1,22 @@
 <%- include('../partials/header') %>
 
 <div id="main-page">
-    <div id="top-text">Get Ready!</div>
-    <div id="img-ctn">3</div>
+    
+    <div id="timer-page">
+        <p id="first-timer">3</p>
+    </div>
+    
+    <input id="genQ" type="submit" value="NEXT QUESTION" onclick="generateQuestion()">
+    
+    <div id="q-ctn">
+        <div id="questions">This is a sample question</div>
+    </div>
+    <div id="a-ctn">
+        <div id="ans0">First</div>
+        <div id="ans1">Second</div>
+        <div id="ans2">Third</div>
+        <div id="ans3">Fourth</div>
+    </div>
 </div>
 
 <%- include('../partials/footer') %>

@@ -32,6 +32,6 @@ router.get('/logout', function(req, res) {
 });
 
 router.get('/games', gamesCtrl.showCategories);
-router.get('/games', gamesCtrl.showQuestions);
+router.get('/games/questions', gamesCtrl.showQuestions);
 
 module.exports = router;
