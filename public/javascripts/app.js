@@ -1,4 +1,5 @@
 // Cached DOM elements
+var firstTimer;
 var timeRemaining;
 var gameStart;
 var question;
@@ -10,7 +11,7 @@ var genQ;
 var correctAnswer;
 
 // Event listeners
-// beginCountdown();
+beginCountdown();
 
 function generateQuestion() {
     fetch('https://opentdb.com/api.php?amount=1&category=9')
@@ -23,26 +24,31 @@ function beginCountdown() {
     timeRemaining = randomNumber(15, 180);
     gameStart = setInterval(function() {
         countDown();
-        console.log(timeRemaining)
+        // console.log(timeRemaining)
         if (timeRemaining === 0) {
             console.log('GAME OVER');
-            stopInterval();
+            stopInterval(gameStart);
+            // Render Game Over Page
         }
     }, 1000);
 }
 
+// Randomizes number between min and max numbers
 function randomNumber(min, max){
     return Math.floor(Math.random() * (max - min) + 1) + min;
 }
 
+// Counts down 1 second per call
 function countDown() {
     timeRemaining--;
 }
 
-function stopInterval() {
-    clearInterval(gameStart);
+// Stops the given interval
+function stopInterval(interval) {
+    clearInterval(interval);
 }
 
+// Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
 function renderQuestion(q) {
     var answersArr = [
         q.results[0].correct_answer,
@@ -61,10 +67,9 @@ function renderQuestion(q) {
 
     correctAnswer = q.results[0].correct_answer;
     console.log(correctAnswer);
-    changedAnswer = correctAnswer.toString();
-    console.log(changedAnswer);
 }
-    
+
+// Shuffles the array
 function shuffleArray(arr) {
     var newArr = [].concat(arr);
     var currentIndex = newArr.length;
@@ -82,6 +87,7 @@ function shuffleArray(arr) {
     return newArr;
 }
     
+// Checks the answer for when the event listener is clicked
 function checkAnswer(e) {
     if (e.target.innerHTML === correctAnswer) {
         // This is not accepting the innerHTML
@@ -92,6 +98,7 @@ function checkAnswer(e) {
     }
 }
 
+// Goes to the next question
 function nextQuestion() {
     generateQuestion(function(){
         renderQuestion();
@@ -100,6 +107,7 @@ function nextQuestion() {
     
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function(e) {
+    firstTimer = document.getElementById('first-timer');
     question = document.getElementById('questions');
     ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
