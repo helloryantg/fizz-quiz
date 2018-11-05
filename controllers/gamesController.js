@@ -1,4 +1,6 @@
 var request = require('request');
+const Game = require('../models/Game');
+const User = require('../models/User');
 
 module.exports = {
     showCategories,

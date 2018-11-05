@@ -20,7 +20,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/games',
+    successRedirect: '/category',
     failureRedirect: '/'
   }
 ));
@@ -31,7 +31,7 @@ router.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-router.get('/games', gamesCtrl.showCategories);
+router.get('/category', gamesCtrl.showCategories);
 router.get('/category/:catId', gamesCtrl.showQuestions);
 
 module.exports = router;
