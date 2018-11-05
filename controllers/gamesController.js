@@ -5,7 +5,8 @@ const User = require('../models/User');
 module.exports = {
     showCategories,
     createGame,
-    newQuestion
+    newQuestion,
+    removeQuestion
 }
 
 function showCategories(req, res) {
@@ -23,9 +24,19 @@ function createGame(req, res) {
 };
 
 function newQuestion(req, res) {
-    Game.findById({id: req.params.gameId}), function(err, questions) {
-        if (err) return res.status(400).json(err);
-        res.json(questions);
-    }
+    Game.findById(req.params.gameId, function(err, questions) {
+        fetch(`https://opentdb.com/api.php?amount=40&category=${catId}`)
+        .then(request => request.json())
+        .then()
+        if (err) return res.status(400).json({err});
+        res.status(200).json(questions);
+    });
+}
+
+function removeQuestion(req, res, next) {
+    Game.findByIdAndRemove(req.params.gameId, function(err, question) {
+        if (err) return res.status(400).json({err});
+        res.status(200).json({question});
+    });
 }
 

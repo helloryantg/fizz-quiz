@@ -20,7 +20,7 @@ var allQuestions;
 renderGame();
 
 function generateQuestion(e) {
-    fetch(`https://opentdb.com/api.php?amount=1&category=${catId}`)
+    fetch(`https://opentdb.com/api.php?amount=40&category=${catId}`)
     .then(response => response.json())
     .then(json => renderQuestion(json));   
 }
