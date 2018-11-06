@@ -1,5 +1,6 @@
 // Cached DOM elements
-var firstTimer;
+var timerPage;
+var countdown;
 var timer;
 var timeRemaining;
 var gameStart;
@@ -14,8 +15,6 @@ var wrongPage;
 var correctPage;
 
 // Event listeners
-renderGame();
-
 function generateQuestion() {
     fetch('/api/newQuestion/' + gameId)
     .then(response => response.json())
@@ -23,10 +22,27 @@ function generateQuestion() {
 }
 
 // Functions
+// firstCountdown();
+renderGame();
+
 function renderGame() {
-    timeRemaining = randomNumber(15, 20);
+    timeRemaining = randomNumber(30, 180);
     beginCountdown();
     generateQuestion();
+}
+
+function firstCountdown() {
+    timerPage.style.display = 'block'
+    timer = 3;
+    console.log(timer);
+    var countInterval = setInterval(function() {
+        console.log(timer);
+        timer--;
+        countdown.innerHTML = timer;
+        if (count === 0) {
+            clearInterval(countInterval);
+        }
+    }, 1000);
 }
 
 function beginCountdown() {
@@ -136,22 +152,24 @@ function renderCorrectPage() {
         correctPage.style.display = 'none';
     }, 0500);
 }
-    
+ 
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
-    firstTimer = document.getElementById('first-timer');
+    countdown = document.getElementById('countdown');
     question = document.getElementById('questions');
-        
+    
     ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
-
+    
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
-
+    
     wrongPage = document.getElementById('wrong-page');
     correctPage = document.getElementById('correct-page');
+    timerPage = document.getElementById('timer-page');
 });
+
