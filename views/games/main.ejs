@@ -1,11 +1,6 @@
 <%- include('../partials/header') %>
 
 <div id="main-page">
-    
-    <div id="timer-container">
-        <p id="first-timer">3</p>
-    </div>
-
     <div id="question-wrap-container">
         <div id="questions-container">
             <input id="genQ" type="submit" value="NEXT QUESTION" onclick="generateQuestion()">
@@ -22,9 +17,9 @@
         </div>
     </div>   
 
-    <div id="gameover-container">
-        <p >GAMEOVER</p>
-    </div>
+    <div class="correct-page"></div>
+
+    <div class="wrong-page"></div>
 </div>
 
 <script>
