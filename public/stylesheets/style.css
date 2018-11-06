@@ -47,3 +47,57 @@ a {
 #random-cat {
   border: 5px dashed black;
 }
+
+#questions-container {
+  border: 1px dashed black;
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* #question-wrap-container {
+  
+  height: 100vh;
+  width: 100vw;
+  justify-content: center;
+  border: 1px solid blue;
+} */
+
+#q-ctn {
+  height: 50vh;
+  width: 72%;
+  border: 1px solid black;
+  border-radius: 15px;
+  background-color: rgb(240, 240, 240);
+  font-size: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 100px;
+  padding-left: 60px;
+  padding-right: 60px;
+
+}
+
+#a-ctn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 85%;
+  height: 40%;
+}
+
+.answers {
+  border: 1px solid black;
+  border-radius: 20px;
+  height: 130px;
+  background-color: rgb(240, 240, 240);
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
