@@ -100,3 +100,45 @@ a {
   flex-direction: column;
   justify-content: center;
 }
+
+#timer-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  height: 100vh;
+  width: 95%;
+  position: absolute;
+  top: 0;
+  background-color: gold;
+  border-radius: 20px;
+  display: none;
+} 
+
+#wrong-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  height: 100vh;
+  width: 95%;
+  position: absolute;
+  top: 0;
+  background-color: red;
+  border-radius: 20px;
+  display: none;
+} 
+
+#correct-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  height: 100vh;
+  width: 95%;
+  position: absolute;
+  top: 0;
+  background-color: green;
+  border-radius: 20px;
+  display: none;
+} 
