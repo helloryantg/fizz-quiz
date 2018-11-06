@@ -29,10 +29,8 @@ router.get('/logout', function (req, res) {
   res.redirect('/');
 });
 
-
 router.get('/category', isLoggedIn, gamesCtrl.showCategories);
 router.get('/category/:catId', isLoggedIn, gamesCtrl.createGame);
-
 router.get('/api/newQuestion/:gameId', gamesCtrl.newQuestion);
 
 
