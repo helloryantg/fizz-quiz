@@ -10,7 +10,29 @@ body {
 }
 
 nav {
-  height: 1vh;
+  height: 5vh;
+  min-height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-div {
+  width: 20%;
+  border: 1px solid black;
+}
+
+#nav-img {
+  display: flex;
+  justify-content: center;
+  border: 1px solid black;
+  align-items: center;
+}
+
+#fizz-text {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 a {
@@ -61,7 +83,7 @@ a {
   border: 1px dashed black;
   text-align: center;
   width: 100vw;
-  height: 100vh;
+  height: 99vh;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -144,6 +166,11 @@ a {
   flex-direction: column;
 }
 
+<<<<<<< HEAD
+#main-page {
+  height: 95vh;
+}
+=======
 #timer-page {
   display: flex;
   justify-content: center;
@@ -186,3 +213,4 @@ a {
   display: none;
 } 
 
+>>>>>>> master
