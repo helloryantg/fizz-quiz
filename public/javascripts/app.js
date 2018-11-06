@@ -10,17 +10,13 @@ var ans2;
 var ans3;
 var genQ;
 var correctAnswer;
-
 var animalsCategory;
-
-var allQuestions;
-
 
 // Event listeners
 renderGame();
 
 function generateQuestion(e) {
-    fetch(`https://opentdb.com/api.php?amount=40&category=${catId}`)
+    fetch('/api/newQuestion/' + gameId)
     .then(response => response.json())
     .then(json => renderQuestion(json));   
 }
