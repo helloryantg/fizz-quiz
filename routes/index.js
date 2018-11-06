@@ -3,35 +3,42 @@ var router = express.Router();
 var passport = require('passport');
 var gamesCtrl = require('../controllers/gamesController');
 
-const generalURL = 'https://opentdb.com/api.php?amount=1&category=9';
-
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.render('index', { user: req.user });
 });
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate(
   'google',
-  { scope: ['profile', 'email']}
+  { scope: ['profile', 'email'] }
 ));
 
 // Google OAuth callback route
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/games',
+    successRedirect: '/category',
     failureRedirect: '/'
   }
 ));
 
 // OAuth logout route
-router.get('/logout', function(req, res) {
+router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });
 
-router.get('/games', gamesCtrl.showCategories);
-router.get('/games/questions', gamesCtrl.showQuestions);
+
+router.get('/category', isLoggedIn, gamesCtrl.showCategories);
+router.get('/category/:catId', isLoggedIn, gamesCtrl.createGame);
+
+router.get('/api/newQuestion/:gameId', gamesCtrl.newQuestion);
+
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  res.redirect('/auth/google');
+}
 
 module.exports = router;

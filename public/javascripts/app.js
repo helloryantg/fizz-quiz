@@ -1,5 +1,6 @@
 // Cached DOM elements
 var firstTimer;
+var timer;
 var timeRemaining;
 var gameStart;
 var question;
@@ -9,27 +10,41 @@ var ans2;
 var ans3;
 var genQ;
 var correctAnswer;
+var animalsCategory;
 
 // Event listeners
-
-beginCountdown();
 renderGame();
 
-function generateQuestion() {
-    fetch('https://opentdb.com/api.php?amount=1&category=27')
+function generateQuestion(e) {
+    fetch('/api/newQuestion/' + gameId)
     .then(response => response.json())
-    .then(json => renderQuestion(json));
+    .then(json => renderQuestion(json));   
 }
 
 // Functions
 function renderGame() {
     // set gameover and timer displays to none
+    firstTimerCountdown();
+}
+
+function firstTimerCountdown() {
+    firstTimer = 3;
+    timer = setInterval(function() {
+        firstTimer--;
+        console.log(firstTimer);
+        if (firstTimer === 0) {
+            console.log('BEGIN GAME');
+            clearInterval(timer);
+            beginCountdown();
+            // remove timer page
+        }
+    }, 1000);
 }
 
 function beginCountdown() {
     timeRemaining = randomNumber(5,10);
     gameStart = setInterval(function() {
-        countDown();
+        timeRemaining--;
         console.log(timeRemaining)
         if (timeRemaining === 0) {
             console.log('GAME OVER');
@@ -40,13 +55,8 @@ function beginCountdown() {
 }
 
 // Randomizes number between min and max numbers
-function randomNumber(min, max){
+function randomNumber(min, max) {
     return Math.floor(Math.random() * (max - min) + 1) + min;
-}
-
-// Counts down 1 second per call
-function countDown() {
-    timeRemaining--;
 }
 
 // Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
@@ -57,9 +67,8 @@ function renderQuestion(q) {
         q.results[0].incorrect_answers[1],
         q.results[0].incorrect_answers[2]
     ];
-    
-    var shuffledAnswers = shuffleArray(answersArr);
-    
+
+    var shuffledAnswers = shuffleArray(answersArr);    
     correctAnswer = q.results[0].correct_answer;
     console.log(correctAnswer);
     
@@ -89,18 +98,18 @@ function shuffleArray(arr) {
     var currentIndex = newArr.length;
     var tempValue;
     var randomIndex;
-    
+
     while (currentIndex !== 0) {
         randomIndex = Math.floor(Math.random() * currentIndex);
         currentIndex -= 1;
-        
+
         tempValue = newArr[currentIndex];
         newArr[currentIndex] = newArr[randomIndex];
         newArr[randomIndex] = tempValue;
     }
     return newArr;
 }
-    
+
 // Checks the answer for when the event listener is clicked
 function checkAnswer(e) {
     if (e.target.innerHTML === correctAnswer) {
@@ -114,7 +123,7 @@ function checkAnswer(e) {
 
 // Goes to the next question
 function nextQuestion() {
-    generateQuestion(function(){
+    generateQuestion(function () {
         renderQuestion();
     });
 }
@@ -124,7 +133,7 @@ function gameOver() {
 }
     
 // DOM elements retreived in page load event
-document.addEventListener("DOMContentLoaded", function(e) {
+document.addEventListener("DOMContentLoaded", function (e) {
     firstTimer = document.getElementById('first-timer');
     question = document.getElementById('questions');
     
@@ -140,4 +149,6 @@ document.addEventListener("DOMContentLoaded", function(e) {
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
+
+    animalsCategory = document.getElementById('animals');
 });
