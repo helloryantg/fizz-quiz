@@ -6,6 +6,7 @@ module.exports = {
     showCategories,
     createGame,
     newQuestion,
+    incorrectAnswer,
     gameOver
 }
 
@@ -25,7 +26,6 @@ function createGame(req, res) {
 
 function newQuestion(req, res) {
     Game.findById(req.params.gameId, async function(err, game) {
-        console.log(game);
         if (err) return res.status(400).json({err});
         var dupe = true;
         while (dupe) {
@@ -43,6 +43,21 @@ function newQuestion(req, res) {
                 });
             }
         }
+    });
+}
+
+function incorrectAnswer(req, res) {
+    Game.findById(req.params.gameId, function(err, game) {
+        if (err) return res.status(400).json({err});
+        var lastQuestion = game.questions[game.questions.length - 1];
+        lastQuestion.numDrinks++;
+        // get the last question in the array and update the number of drinks
+        // increment the numDrinks
+        // done
+        console.log(game.numDrinks);
+        game.save(function(err) {
+            res.status(200).json(lastQuestion);
+        });
     });
 }
 
