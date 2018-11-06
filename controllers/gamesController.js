@@ -5,7 +5,8 @@ const User = require('../models/User');
 module.exports = {
     showCategories,
     createGame,
-    newQuestion
+    newQuestion,
+    gameOver
 }
 
 function showCategories(req, res) {
@@ -43,6 +44,10 @@ function newQuestion(req, res) {
             }
         }
     });
+}
+
+function gameOver(req, res) {
+    res.render('games/gameover');
 }
 
 // async/await
