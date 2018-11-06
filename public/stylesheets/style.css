@@ -123,6 +123,7 @@ a {
   justify-content: center;
 }
 
+
 #index-text-wrap {
   /* border: 1px dashed black; */
   height: 20%;
@@ -165,6 +166,51 @@ a {
   flex-direction: column;
 }
 
+<<<<<<< HEAD
 #main-page {
   height: 95vh;
 }
+=======
+#timer-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  height: 100vh;
+  width: 95%;
+  position: absolute;
+  top: 0;
+  background-color: gold;
+  border-radius: 20px;
+  display: none;
+} 
+
+#wrong-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  height: 100vh;
+  width: 95%;
+  position: absolute;
+  top: 0;
+  background-color: red;
+  border-radius: 20px;
+  display: none;
+} 
+
+#correct-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  height: 100vh;
+  width: 95%;
+  position: absolute;
+  top: 0;
+  background-color: green;
+  border-radius: 20px;
+  display: none;
+} 
+
+>>>>>>> master
