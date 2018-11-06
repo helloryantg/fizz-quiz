@@ -20,35 +20,34 @@ var correctPage;
 document.addEventListener("DOMContentLoaded", function (e) {
     countdown = document.getElementById('countdown');
     question = document.getElementById('questions');
-    
     ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
-    
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
-    
     wrongPage = document.getElementById('wrong-page');
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
     
     // Functions
-
     function generateQuestion() {
-        fetch('/api/newQuestion/' + gameId)
+        fetch(`/api/newQuestion/${gameId}`)
         .then(response => response.json())
         .then(json => renderQuestion(json));   
     }
 
-    function renderGame() {
-        timeRemaining = randomNumber(30, 180);
-        beginCountdown();
-        generateQuestion();
+    function incorrectAnswer() {
+        fetch(`/api/incorrectAnswer/${gameId}`, {
+            method: 'POST',
+            credentials: 'include'
+        })
+        .then(response => response.json())
+        .then(question => console.log(question));
     }
-    
+
     function firstCountdown() {
         timerPage.style.display = 'block'
         timer = 4;
@@ -61,6 +60,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
                 renderGame();
             }
         }, 1000);
+    }
+    
+    function renderGame() {
+        timeRemaining = randomNumber(30, 180);
+        beginCountdown();
+        generateQuestion();
     }
     
     function beginCountdown() {
@@ -139,7 +144,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
         if (e.target.innerHTML === correctAnswer) {
-            // This is not accepting the innerHTML
             console.log('Correct!');
             renderCorrectPage();
             nextQuestion();
@@ -147,6 +151,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             console.log('Try again!');
             e.target.innerHTML = '';
             renderWrongPage();
+            incorrectAnswer();
         }
     }
     
