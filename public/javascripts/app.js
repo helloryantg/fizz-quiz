@@ -122,7 +122,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     firstTimer = document.getElementById('first-timer');
     question = document.getElementById('questions');
 
-
     ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
