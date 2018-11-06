@@ -15,144 +15,7 @@ var wrongPage;
 var correctPage;
 
 // Event listeners
-function generateQuestion() {
-    fetch('/api/newQuestion/' + gameId)
-    .then(response => response.json())
-    .then(json => renderQuestion(json));   
-}
 
-// Functions
-// firstCountdown();
-renderGame();
-
-function renderGame() {
-    timeRemaining = randomNumber(30, 180);
-    beginCountdown();
-    generateQuestion();
-}
-
-function firstCountdown() {
-    timerPage.style.display = 'block'
-    timer = 3;
-    console.log(timer);
-    var countInterval = setInterval(function() {
-        console.log(timer);
-        timer--;
-        countdown.innerHTML = timer;
-        if (count === 0) {
-            clearInterval(countInterval);
-        }
-    }, 1000);
-}
-
-function beginCountdown() {
-    gameStart = setInterval(function() {
-        timeRemaining--;
-        console.log(timeRemaining)
-        if (timeRemaining === 0) {
-            console.log('GAME OVER');
-            clearInterval(gameStart);
-            gameOver();
-        }
-    }, 1000);
-}
-
-// Randomizes number between min and max numbers
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min) + 1) + min;
-}
-
-// Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
-function renderQuestion(q) {
-    var answersArr = [
-        q.results[0].correct_answer,
-        q.results[0].incorrect_answers[0],
-        q.results[0].incorrect_answers[1],
-        q.results[0].incorrect_answers[2]
-    ];
-
-    var shuffledAnswers = shuffleArray(answersArr);    
-    correctAnswer = q.results[0].correct_answer;
-    console.log(correctAnswer);
-    
-    question.innerHTML = q.results[0].question;      
-    ans0.innerHTML = shuffledAnswers[0];
-    ans1.innerHTML = shuffledAnswers[1];
-    ans2.innerHTML = shuffledAnswers[2];
-    ans3.innerHTML = shuffledAnswers[3];
-    
-    if (shuffledAnswers[0] === undefined) {
-        ans0.innerHTML = '';
-    }
-    if (shuffledAnswers[1] === undefined) {
-        ans1.innerHTML = '';
-    }
-    if (shuffledAnswers[2] === undefined) {
-        ans2.innerHTML = '';
-    }
-    if (shuffledAnswers[3] === undefined) {
-        ans3.innerHTML = '';
-    }
-}
-
-// Shuffles the array
-function shuffleArray(arr) {
-    var newArr = arr;
-    var currentIndex = newArr.length;
-    var tempValue;
-    var randomIndex;
-
-    while (currentIndex !== 0) {
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
-
-        tempValue = newArr[currentIndex];
-        newArr[currentIndex] = newArr[randomIndex];
-        newArr[randomIndex] = tempValue;
-    }
-    return newArr;
-}
-
-// Checks the answer for when the event listener is clicked
-function checkAnswer(e) {
-    if (e.target.innerHTML === correctAnswer) {
-        // This is not accepting the innerHTML
-        console.log('Correct!');
-        renderCorrectPage();
-        nextQuestion();
-    } else {
-        console.log('Try again!');
-        e.target.innerHTML = '';
-        renderWrongPage();
-    }
-}
-
-// Goes to the next question
-function nextQuestion() {
-    generateQuestion(function () {
-        renderQuestion();
-    });
-}
-
-function gameOver() {
-    // change this route for when deployed
-    window.location.replace('http://localhost:3000/gameover');
-}
-
-function renderWrongPage() {
-    wrongPage.style.display = 'block';
-    setTimeout(function() {
-        wrongPage.style.display = 'none';
-    }, 3000);
-}
-
-function renderCorrectPage() {
-    correctPage.style.display = 'block';
-    setTimeout(function() {
-        correctPage.style.display = 'none';
-    }, 0500);
-}
- 
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
     countdown = document.getElementById('countdown');
@@ -171,5 +34,147 @@ document.addEventListener("DOMContentLoaded", function (e) {
     wrongPage = document.getElementById('wrong-page');
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
-});
+    
+    // Functions
 
+    function generateQuestion() {
+        fetch('/api/newQuestion/' + gameId)
+        .then(response => response.json())
+        .then(json => renderQuestion(json));   
+    }
+
+    function renderGame() {
+        timeRemaining = randomNumber(30, 180);
+        beginCountdown();
+        generateQuestion();
+    }
+    
+    function firstCountdown() {
+        timerPage.style.display = 'block'
+        timer = 4;
+        var countInterval = setInterval(function() {
+            timer--;
+            countdown.innerHTML = timer;
+            if (timer === 0) {
+                clearInterval(countInterval);
+                timerPage.style.display = 'none'
+                renderGame();
+            }
+        }, 1000);
+    }
+    
+    function beginCountdown() {
+        gameStart = setInterval(function() {
+            timeRemaining--;
+            console.log(timeRemaining)
+            if (timeRemaining === 0) {
+                console.log('GAME OVER');
+                clearInterval(gameStart);
+                gameOver();
+            }
+        }, 1000);
+    }
+    
+    // Randomizes number between min and max numbers
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min) + 1) + min;
+    }
+    
+    // Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
+    function renderQuestion(q) {
+        var answersArr = [
+            q.results[0].correct_answer,
+            q.results[0].incorrect_answers[0],
+            q.results[0].incorrect_answers[1],
+            q.results[0].incorrect_answers[2]
+        ];
+        
+        question.innerHTML = q.results[0].question;      
+
+        if (answersArr.length > 2) {
+            var shuffledAnswers = shuffleArray(answersArr);
+            ans0.innerHTML = shuffledAnswers[0];
+            ans1.innerHTML = shuffledAnswers[1];
+            ans2.innerHTML = shuffledAnswers[2];
+            ans3.innerHTML = shuffledAnswers[3];    
+        } else if (answersArr.length === 2) {
+            ans0.innerHTML = shuffledAnswers[0];
+            ans1.innerHTML = shuffledAnswers[1];
+        }
+        correctAnswer = q.results[0].correct_answer;
+        console.log(correctAnswer);
+        
+        if (shuffledAnswers[0] === undefined) {
+            ans0.innerHTML = '';
+        }
+        if (shuffledAnswers[1] === undefined) {
+            ans1.innerHTML = '';
+        }
+        if (shuffledAnswers[2] === undefined) {
+            ans2.innerHTML = '';
+        }
+        if (shuffledAnswers[3] === undefined) {
+            ans3.innerHTML = '';
+        }
+    }
+    
+    // Shuffles the array
+    function shuffleArray(arr) {
+        var newArr = arr;
+        var currentIndex = newArr.length;
+        var tempValue;
+        var randomIndex;
+    
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+    
+            tempValue = newArr[currentIndex];
+            newArr[currentIndex] = newArr[randomIndex];
+            newArr[randomIndex] = tempValue;
+        }
+        return newArr;
+    }
+    
+    // Checks the answer for when the event listener is clicked
+    function checkAnswer(e) {
+        if (e.target.innerHTML === correctAnswer) {
+            // This is not accepting the innerHTML
+            console.log('Correct!');
+            renderCorrectPage();
+            nextQuestion();
+        } else {
+            console.log('Try again!');
+            e.target.innerHTML = '';
+            renderWrongPage();
+        }
+    }
+    
+    // Goes to the next question
+    function nextQuestion() {
+        generateQuestion(function () {
+            renderQuestion();
+        });
+    }
+    
+    function gameOver() {
+        // change this route for when deployed
+        window.location.replace('http://localhost:3000/gameover');
+    }
+    
+    function renderWrongPage() {
+        wrongPage.style.display = 'block';
+        setTimeout(function() {
+            wrongPage.style.display = 'none';
+        }, 3000);
+    }
+    
+    function renderCorrectPage() {
+        correctPage.style.display = 'block';
+        setTimeout(function() {
+            correctPage.style.display = 'none';
+        }, 0500);
+    }
+    
+    firstCountdown();
+});
