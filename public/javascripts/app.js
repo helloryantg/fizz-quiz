@@ -10,6 +10,8 @@ var ans2;
 var ans3;
 var genQ;
 var correctAnswer;
+var wrongPage;
+var correctPage;
 
 // Event listeners
 renderGame();
@@ -22,12 +24,12 @@ function generateQuestion() {
 
 // Functions
 function renderGame() {
+    timeRemaining = randomNumber(15, 20);
     beginCountdown();
     generateQuestion();
 }
 
 function beginCountdown() {
-    timeRemaining = randomNumber(15, 180);
     gameStart = setInterval(function() {
         timeRemaining--;
         console.log(timeRemaining)
@@ -100,9 +102,12 @@ function checkAnswer(e) {
     if (e.target.innerHTML === correctAnswer) {
         // This is not accepting the innerHTML
         console.log('Correct!');
+        renderCorrectPage();
         nextQuestion();
     } else {
         console.log('Try again!');
+        e.target.innerHTML = '';
+        renderWrongPage();
     }
 }
 
@@ -114,7 +119,22 @@ function nextQuestion() {
 }
 
 function gameOver() {
-    // redirect to gameover.ejs
+    // change this route for when deployed
+    window.location.replace('http://localhost:3000/gameover');
+}
+
+function renderWrongPage() {
+    wrongPage.style.display = 'block';
+    setTimeout(function() {
+        wrongPage.style.display = 'none';
+    }, 3000);
+}
+
+function renderCorrectPage() {
+    correctPage.style.display = 'block';
+    setTimeout(function() {
+        correctPage.style.display = 'none';
+    }, 0500);
 }
     
 // DOM elements retreived in page load event
@@ -131,4 +151,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
+
+    wrongPage = document.getElementById('wrong-page');
+    correctPage = document.getElementById('correct-page');
 });
