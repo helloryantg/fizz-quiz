@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     wrongPage = document.getElementById('wrong-page');
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
-    
+
     // Functions
     function generateQuestion() {
         fetch(`/api/newQuestion/${gameId}`)
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     function firstCountdown() {
         timerPage.style.display = 'block'
         timer = 4;
-        var countInterval = setInterval(function() {
+        var countInterval = setInterval(function () {
             timer--;
             countdown.innerHTML = timer;
             if (timer === 0) {
@@ -61,15 +61,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
         }, 1000);
     }
-    
     function renderGame() {
         timeRemaining = randomNumber(30, 180);
         beginCountdown();
         generateQuestion();
     }
-    
+  
     function beginCountdown() {
-        gameStart = setInterval(function() {
+        gameStart = setInterval(function () {
             timeRemaining--;
             console.log(timeRemaining)
             if (timeRemaining === 0) {
@@ -79,12 +78,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             }
         }, 1000);
     }
-    
+
     // Randomizes number between min and max numbers
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + 1) + min;
     }
-    
+
     // Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
     function renderQuestion(q) {
         var answersArr = [
@@ -93,22 +92,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
             q.results[0].incorrect_answers[1],
             q.results[0].incorrect_answers[2]
         ];
-        
-        question.innerHTML = q.results[0].question;      
+
+        question.innerHTML = q.results[0].question;
 
         if (answersArr.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = shuffledAnswers[2];
-            ans3.innerHTML = shuffledAnswers[3];    
+            ans3.innerHTML = shuffledAnswers[3];
         } else if (answersArr.length === 2) {
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
         }
         correctAnswer = q.results[0].correct_answer;
         console.log(correctAnswer);
-        
+
         if (shuffledAnswers[0] === undefined) {
             ans0.innerHTML = '';
         }
@@ -122,25 +121,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ans3.innerHTML = '';
         }
     }
-    
+
     // Shuffles the array
     function shuffleArray(arr) {
         var newArr = arr;
         var currentIndex = newArr.length;
         var tempValue;
         var randomIndex;
-    
+
         while (currentIndex !== 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
-    
+
             tempValue = newArr[currentIndex];
             newArr[currentIndex] = newArr[randomIndex];
             newArr[randomIndex] = tempValue;
         }
         return newArr;
     }
-    
+
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
         if (e.target.innerHTML === correctAnswer) {
@@ -154,32 +153,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
             incorrectAnswer();
         }
     }
-    
+
     // Goes to the next question
     function nextQuestion() {
         generateQuestion(function () {
             renderQuestion();
         });
     }
-    
+
     function gameOver() {
         // change this route for when deployed
         window.location.replace('http://localhost:3000/gameover');
     }
-    
+
     function renderWrongPage() {
         wrongPage.style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
             wrongPage.style.display = 'none';
         }, 3000);
     }
-    
+
     function renderCorrectPage() {
         correctPage.style.display = 'block';
-        setTimeout(function() {
+        setTimeout(function () {
             correctPage.style.display = 'none';
         }, 0500);
     }
-    
+
     firstCountdown();
 });

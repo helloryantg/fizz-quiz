@@ -6,7 +6,10 @@ html {
 body {
   text-align: center;
   background-color: rgb(247, 247, 247);
-  margin: 0 !important
+  margin: 0 !important;
+  background-image: url("http://ajaxdistributing.com/wp-content/uploads/2017/10/beer-background-155355293.jpg");
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 nav {
@@ -55,6 +58,8 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 35px;
+  background-color: rgb(220,220,220);
+  color: white; 
 }
 
 .categories a {
@@ -121,6 +126,7 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  cursor: pointer;
 }
 
 
@@ -165,11 +171,10 @@ a {
   flex-direction: column;
 }
 
-<<<<<<< HEAD
 #main-page {
   height: 95vh;
 }
-=======
+
 #timer-page {
   display: flex;
   justify-content: center;
@@ -179,9 +184,10 @@ a {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
-  background-color: gold;
+  background-color: rgb(252, 208, 86);
+  border-radius: 20px;
   display: none;
+  font-size: 150px;
 } 
 
 .timer-container {
@@ -223,4 +229,12 @@ a {
   color: white;
 } 
 
->>>>>>> master
+.gameover-page{
+  color: rgb(252, 208, 86);
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
