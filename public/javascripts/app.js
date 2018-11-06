@@ -10,12 +10,11 @@ var ans2;
 var ans3;
 var genQ;
 var correctAnswer;
-var animalsCategory;
 
 // Event listeners
 renderGame();
 
-function generateQuestion(e) {
+function generateQuestion() {
     fetch('/api/newQuestion/' + gameId)
     .then(response => response.json())
     .then(json => renderQuestion(json));   
@@ -23,26 +22,12 @@ function generateQuestion(e) {
 
 // Functions
 function renderGame() {
-    // set gameover and timer displays to none
-    firstTimerCountdown();
-}
-
-function firstTimerCountdown() {
-    firstTimer = 3;
-    timer = setInterval(function() {
-        firstTimer--;
-        console.log(firstTimer);
-        if (firstTimer === 0) {
-            console.log('BEGIN GAME');
-            clearInterval(timer);
-            beginCountdown();
-            // remove timer page
-        }
-    }, 1000);
+    beginCountdown();
+    generateQuestion();
 }
 
 function beginCountdown() {
-    timeRemaining = randomNumber(5,10);
+    timeRemaining = randomNumber(15, 180);
     gameStart = setInterval(function() {
         timeRemaining--;
         console.log(timeRemaining)
@@ -129,26 +114,21 @@ function nextQuestion() {
 }
 
 function gameOver() {
-    // gameoverContainer.style.display = 'block';
+    // redirect to gameover.ejs
 }
     
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
     firstTimer = document.getElementById('first-timer');
     question = document.getElementById('questions');
-    
-    // gameoverContainer = document.getElementById('gameover-container');
-    
+        
     ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
-    getQ = document.getElementById('genQ'); // This can be removed after TimeIntervals are placed.
 
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
-
-    animalsCategory = document.getElementById('animals');
 });
