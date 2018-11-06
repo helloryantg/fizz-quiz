@@ -4,35 +4,35 @@ html {
 }
 
 body {
-  padding: 0px;
-  margin: 0px;
   text-align: center;
-  height: 100vh;
   background-color: rgb(247, 247, 247);
+  margin: 0 !important
+}
+
+nav {
+  height: 1vh;
 }
 
 a {
   color: #00B7FF;
 }
 
-#welcome-logo {
-  margin-top: 20%;
-  margin-bottom: 20%;
-}
-
-
 .categories-ctn {
   display: flex;
   justify-content: space-evenly;
-  height: 350px;
+  height: 30%;
+  align-items: center;
 }
 
 .categories {
-  height: 160px;
-  width: 200px;
+  height: 95%;
+  width: 27%;
   border: 1px solid black;
-  border-radius: 15px;
-  padding-top: 140px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 35px;
 }
 
 .categories a {
@@ -40,10 +40,18 @@ a {
   color: black;
 }
 
-#pick-category {
+#category-text {
+  height: 4vh;
+}
+
+#categories-page {
+  height: 95vh;
+}
+
+/* #pick-category {
   height: 100px;
   margin-top: 100px;
-}
+} */
 
 #random-cat {
   border: 5px dashed black;
@@ -59,14 +67,6 @@ a {
   flex-direction: column;
   align-items: center;
 }
-
-/* #question-wrap-container {
-  
-  height: 100vh;
-  width: 100vw;
-  justify-content: center;
-  border: 1px solid blue;
-} */
 
 #q-ctn {
   height: 50vh;
@@ -99,6 +99,49 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+
+#index-text-wrap {
+  /* border: 1px dashed black; */
+  height: 20%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.index-text {
+  font-size: 24px;
+  border: 1px solid grey;
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.index-text a{
+  text-decoration: none;
+  color: black;
+}
+
+#welcome-logo {
+  height: 50%;
+  /* border: 1px dashed blue; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#welcome-page {
+  /* border: 1px solid red; */
+  height: 100vh;
+  min-height: 800px;
+  display: flex;
+  flex-direction: column;
 }
 
 #timer-page {
@@ -142,3 +185,4 @@ a {
   border-radius: 20px;
   display: none;
 } 
+
