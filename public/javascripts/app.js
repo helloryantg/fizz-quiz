@@ -10,26 +10,15 @@ var ans2;
 var ans3;
 var genQ;
 var correctAnswer;
-
 var animalsCategory;
 
 // Event listeners
 renderGame();
 
 function generateQuestion(e) {
-    fetch('https://opentdb.com/api.php?amount=1&category=27')
+    fetch('/api/newQuestion/' + gameId)
         .then(response => response.json())
         .then(json => renderQuestion(json));
-
-    // Animals 27
-    // General 9
-    // Science/Nature 17
-    // History 23
-    // Movies 11
-    // Random 10
-    // TV 14
-    // Sports 1
-    // Music 12
 }
 
 // Functions

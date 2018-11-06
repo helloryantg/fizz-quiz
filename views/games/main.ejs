@@ -1,28 +1,29 @@
 <%- include('../partials/header') %>
 
 <div id="main-page">
-    
-    <div id="timer-container">
-        <p id="first-timer">3</p>
-    </div>
-
-    <div id="questions-container">
-        <input id="genQ" type="submit" value="NEXT QUESTION" onclick="generateQuestion()">
-        
-        <div id="q-ctn">
-            <div id="questions">This is a sample question</div>
+    <div id="question-wrap-container">
+        <div id="questions-container">
+            <input id="genQ" type="submit" value="NEXT QUESTION" onclick="generateQuestion()">
+            
+            <div id="q-ctn">
+                <div id="questions">This is a sample question</div>
+            </div>
+            <div id="a-ctn">
+                <div class="answers" id="ans0">First</div>
+                <div class="answers" id="ans1">Second</div>
+                <div class="answers" id="ans2">Third</div>
+                <div class="answers" id="ans3">Fourth</div>
+            </div>
         </div>
-        <div id="a-ctn">
-            <div id="ans0">First</div>
-            <div id="ans1">Second</div>
-            <div id="ans2">Third</div>
-            <div id="ans3">Fourth</div>
-        </div>
-    </div>
+    </div>   
 
-    <div id="gameover-container">
-        <p >GAMEOVER</p>
-    </div>
+    <div class="correct-page"></div>
+
+    <div class="wrong-page"></div>
 </div>
+
+<script>
+    let gameId = '<%= gameId %>';
+</script>
 
 <%- include('../partials/footer') %>
