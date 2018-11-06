@@ -18,9 +18,9 @@ renderGame();
 
 function generateQuestion(e) {
     fetch('https://opentdb.com/api.php?amount=1&category=27')
-    .then(response => response.json())
-    .then(json => renderQuestion(json));
-    
+        .then(response => response.json())
+        .then(json => renderQuestion(json));
+
     // Animals 27
     // General 9
     // Science/Nature 17
@@ -40,7 +40,7 @@ function renderGame() {
 
 function firstTimerCountdown() {
     firstTimer = 3;
-    timer = setInterval(function() {
+    timer = setInterval(function () {
         firstTimer--;
         console.log(firstTimer);
         if (firstTimer === 0) {
@@ -53,8 +53,8 @@ function firstTimerCountdown() {
 }
 
 function beginCountdown() {
-    timeRemaining = randomNumber(5,10);
-    gameStart = setInterval(function() {
+    timeRemaining = randomNumber(5, 10);
+    gameStart = setInterval(function () {
         timeRemaining--;
         console.log(timeRemaining)
         if (timeRemaining === 0) {
@@ -79,16 +79,16 @@ function renderQuestion(q) {
         q.results[0].incorrect_answers[2]
     ];
 
-    var shuffledAnswers = shuffleArray(answersArr);    
+    var shuffledAnswers = shuffleArray(answersArr);
     correctAnswer = q.results[0].correct_answer;
     console.log(correctAnswer);
-    
-    question.innerHTML = q.results[0].question;      
+
+    question.innerHTML = q.results[0].question;
     ans0.innerHTML = shuffledAnswers[0];
     ans1.innerHTML = shuffledAnswers[1];
     ans2.innerHTML = shuffledAnswers[2];
     ans3.innerHTML = shuffledAnswers[3];
-    
+
     if (shuffledAnswers[0] === undefined) {
         ans0.innerHTML = '';
     }
@@ -142,14 +142,14 @@ function nextQuestion() {
 function gameOver() {
     // gameoverContainer.style.display = 'block';
 }
-    
+
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
     firstTimer = document.getElementById('first-timer');
     question = document.getElementById('questions');
-    
+
     // gameoverContainer = document.getElementById('gameover-container');
-    
+
     ans0 = document.getElementById('ans0');
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
