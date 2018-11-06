@@ -1,5 +1,6 @@
 html {
   height: 100vh;
+  box-sizing: border-box;
 }
 
 body {
@@ -69,7 +70,7 @@ a {
 
 #q-ctn {
   height: 50vh;
-  width: 72%;
+  width: 85%;
   border: 1px solid black;
   border-radius: 15px;
   background-color: rgb(240, 240, 240);
@@ -78,23 +79,21 @@ a {
   flex-direction: column;
   justify-content: center;
   line-height: 100px;
-  padding-left: 60px;
-  padding-right: 60px;
-
 }
 
 #a-ctn {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  border: 1px solid black;
   width: 85%;
-  height: 40%;
+  height: 40vh;
 }
 
 .answers {
   border: 1px solid black;
   border-radius: 20px;
-  height: 130px;
+  height: 20%;
   background-color: rgb(240, 240, 240);
   font-size: 36px;
   display: flex;

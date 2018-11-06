@@ -45,4 +45,12 @@ function newQuestion(req, res) {
     });
 }
 
+// async/await
+// async function(params) {
+//     try {
+//         const random = await somethingModel.method();
+//     } catch (error) {
+//         console.log(error);
+//     }
+// }
 

@@ -33,7 +33,6 @@ router.get('/category', isLoggedIn, gamesCtrl.showCategories);
 router.get('/category/:catId', isLoggedIn, gamesCtrl.createGame);
 router.get('/api/newQuestion/:gameId', gamesCtrl.newQuestion);
 
-
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
   res.redirect('/auth/google');
