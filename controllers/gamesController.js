@@ -51,9 +51,6 @@ function incorrectAnswer(req, res) {
         if (err) return res.status(400).json({err});
         var lastQuestion = game.questions[game.questions.length - 1];
         lastQuestion.numDrinks++;
-        // get the last question in the array and update the number of drinks
-        // increment the numDrinks
-        // done
         console.log(game.numDrinks);
         game.save(function(err) {
             res.status(200).json(lastQuestion);
