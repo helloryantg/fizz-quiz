@@ -78,6 +78,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
 
+    function decodeHTML(html) {
+        var txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+    };
+
     // Randomizes number between min and max numbers
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + 1) + min;
@@ -130,7 +136,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        if (e.target.innerHTML === correctAnswer) {
+        var decodedCorrectAnswer = decodeHTML(correctAnswer);
+        console.log(decodedCorrectAnswer);
+        if (e.target.innerHTML === decodedCorrectAnswer) {
             renderCorrectPage();
             nextQuestion();
         } else {
