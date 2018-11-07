@@ -23,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
-    
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
@@ -94,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         ];
 
         question.innerHTML = q.results[0].question;
-
+        
         if (q.results[0].incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             ans0.innerHTML = shuffledAnswers[0];
@@ -102,26 +101,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ans2.innerHTML = shuffledAnswers[2];
             ans3.innerHTML = shuffledAnswers[3];
         } else if (q.results[0].incorrect_answers.length <= 2) {
-            ans0.innerHTML = answersArr[0];
-            ans1.innerHTML = answersArr[1];
+            var shuffledAnswers = shuffleArray([q.results[0].correct_answer, q.results[0].incorrect_answers[0]])
+            ans0.innerHTML = shuffledAnswers[0];
+            ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = '';
             ans3.innerHTML = '';
         }
         correctAnswer = q.results[0].correct_answer;
         console.log(correctAnswer);
-
-        if (shuffledAnswers[0] === undefined) { 
-            ans0.innerHTML = '';
-        }
-        if (shuffledAnswers[1] === undefined) {
-            ans1.innerHTML = '';
-        }
-        if (shuffledAnswers[2] === undefined) {
-            ans2.innerHTML = '';
-        }
-        if (shuffledAnswers[3] === undefined) {
-            ans3.innerHTML = '';
-        }
     }
 
     // Shuffles the array
@@ -134,7 +121,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         while (currentIndex !== 0) {
             randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex -= 1;
-
             tempValue = newArr[currentIndex];
             newArr[currentIndex] = newArr[randomIndex];
             newArr[randomIndex] = tempValue;
@@ -144,13 +130,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        if (e.target.textContent === correctAnswer) {
-            console.log('Correct!');
+        if (e.target.innerHTML === correctAnswer) {
             renderCorrectPage();
             nextQuestion();
         } else {
-            console.log('Try again!');
-            e.target.textContent = '';
+            e.target.innerHTML = '';
             renderWrongPage();
             incorrectAnswer();
         }
@@ -165,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     function gameOver() {
         // change this route for when deployed
-        window.location.replace('http://localhost:3000/gameover');
+        window.location.href = '/gameover';
     }
 
     function renderWrongPage() {

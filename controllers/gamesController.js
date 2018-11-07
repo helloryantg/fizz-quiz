@@ -4,6 +4,7 @@ const User = require('../models/User');
 
 module.exports = {
     showCategories,
+    showInstructions,
     createGame,
     newQuestion,
     incorrectAnswer,
@@ -13,6 +14,10 @@ module.exports = {
 function showCategories(req, res) {
     res.render('games/categories');
 };
+
+function showInstructions(req, res) {
+    res.render('games/instructions');
+}
 
 function createGame(req, res) {
     var game = new Game({

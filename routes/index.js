@@ -30,6 +30,7 @@ router.get('/logout', function (req, res) {
 });
 
 router.get('/category', isLoggedIn, gamesCtrl.showCategories);
+router.get('/instructions', gamesCtrl.showInstructions);
 router.get('/category/:catId', isLoggedIn, gamesCtrl.createGame);
 router.get('/api/newQuestion/:gameId', isLoggedIn, gamesCtrl.newQuestion);
 
