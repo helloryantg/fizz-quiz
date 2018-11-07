@@ -13,7 +13,7 @@ var genQ;
 var correctAnswer;
 var wrongPage;
 var correctPage;
-
+var timeupPage;
 
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -26,6 +26,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     wrongPage = document.getElementById('wrong-page');
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
+    timeupPage = document.getElementById('timeup-page');
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
@@ -62,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(15, 30);
+        timeRemaining = randomNumber(2, 3);
         beginCountdown();
         generateQuestion();
     }
