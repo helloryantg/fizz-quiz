@@ -34,17 +34,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Event listeners
     function generateQuestion() {
         fetch(`/api/newQuestion/${gameId}`)
-        .then(response => response.json())
-        .then(json => renderQuestion(json));   
+            .then(response => response.json())
+            .then(json => renderQuestion(json));
     }
-    
+
     function incorrectAnswer() {
         fetch(`/api/incorrectAnswer/${gameId}`, {
             method: 'POST',
             credentials: 'include'
         })
-        .then(response => response.json())
-        .then(question => console.log(question));
+            .then(response => response.json())
+            .then(question => console.log(question));
     }
     
     // Functions
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         beginCountdown();
         generateQuestion();
     }
-  
+
     function beginCountdown() {
         gameStart = setInterval(function () {
             timeRemaining--;
@@ -79,6 +79,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
 
+    function decodeHTML(html) {
+        var txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.value;
+    };
+
+    // Randomizes number between min and max numbers
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + 1) + min;
     }
@@ -91,12 +98,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
             q.results[0].incorrect_answers[1],
             q.results[0].incorrect_answers[2]
         ];
-
-        if (q.results[0].question.length > 30) {
-            question.style.fontSize = '50%';
-        }
-        question.innerHTML = q.results[0].question;
         
+        if (q.results[0].question.length > 140) {
+            question.style.fontSize = '225%';
+        }
+        
+        question.innerHTML = q.results[0].question;
+
         if (q.results[0].incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             ans0.innerHTML = shuffledAnswers[0];
@@ -132,7 +140,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        if (e.target.innerHTML === correctAnswer) {
+        var decodedCorrectAnswer = decodeHTML(correctAnswer);
+        console.log(decodedCorrectAnswer);
+        if (e.target.innerHTML === decodedCorrectAnswer) {
             renderCorrectPage();
             nextQuestion();
         } else {
