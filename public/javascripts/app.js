@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(2, 3);
+        timeRemaining = randomNumber(30, 180);
         beginCountdown();
         generateQuestion();
     }
