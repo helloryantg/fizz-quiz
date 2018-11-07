@@ -1,6 +1,4 @@
-var request = require('request-promise-native');
 const Game = require('../models/Game');
-const User = require('../models/User');
 
 module.exports = {
     showCategories,

@@ -13,14 +13,13 @@ var genQ;
 var correctAnswer;
 var wrongPage;
 var correctPage;
-
+var timeupPage;
 // Audio variables
 var gulpAudio = new Audio("../audio/gulp.wav");
 // var incorrectAudio = new Audio("");
 // var correctAudio = new Audio("");
 // var countdownAudio = new Audio("");
 var explosionAudio = new Audio("../audio/explosion.mp3");
-
 // gulpAudio.play();
 
 // DOM elements retreived in page load event
@@ -34,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     wrongPage = document.getElementById('wrong-page');
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
+    timeupPage = document.getElementById('timeup-page');
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
