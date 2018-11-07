@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         .then(response => response.json())
         .then(json => renderQuestion(json));   
     }
-
+    
     function incorrectAnswer() {
         fetch(`/api/incorrectAnswer/${gameId}`, {
             method: 'POST',
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     function firstCountdown() {
-        timerPage.style.display = 'block'
+        timerPage.style.display = 'block';
         timer = 4;
         var countInterval = setInterval(function () {
             timer--;
@@ -95,20 +95,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
         question.innerHTML = q.results[0].question;
 
-        if (answersArr.length > 2) {
+        if (q.results[0].incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = shuffledAnswers[2];
             ans3.innerHTML = shuffledAnswers[3];
-        } else if (answersArr.length === 2) {
-            ans0.innerHTML = shuffledAnswers[0];
-            ans1.innerHTML = shuffledAnswers[1];
+        } else if (q.results[0].incorrect_answers.length <= 2) {
+            ans0.innerHTML = answersArr[0];
+            ans1.innerHTML = answersArr[1];
+            ans2.innerHTML = '';
+            ans3.innerHTML = '';
         }
         correctAnswer = q.results[0].correct_answer;
         console.log(correctAnswer);
 
-        if (shuffledAnswers[0] === undefined) {
+        if (shuffledAnswers[0] === undefined) { 
             ans0.innerHTML = '';
         }
         if (shuffledAnswers[1] === undefined) {
