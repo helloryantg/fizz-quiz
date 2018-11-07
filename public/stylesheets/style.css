@@ -4,17 +4,14 @@ html {
 }
 
 .title{
-  color: rgb(252, 208, 86);
-  -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: black;
-  margin-bottom: 100px;
-
+  color: black;
 }
 
 #intro{
-  color: white;
-  height: 400px;
-  width: 300px;
+  color: black;
+  height: 30%;
+  width: 50%;
+  font-size: 20px;
 }
 
 body {
@@ -63,7 +60,7 @@ a {
 #header-title{
   font-family: 'Ropa Sans', sans-serif;
   font-size: 46px;
-  color: rgb(252, 208, 86);
+  color: black;
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
@@ -129,7 +126,7 @@ a {
   width: 81.7%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
   border-radius: 8px;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240, 0.7);
   font-size: 48px;
   display: flex;
   flex-direction: column;
@@ -153,7 +150,7 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
   border-radius: 8px;
   height: 20%;
-  background-color: rgb(240, 240, 240);
+  background-color: rgb(240, 240, 240, 0.7);
   font-family: 'Ropa Sans', sans-serif;
   font-size: 36px;
   display: flex;
