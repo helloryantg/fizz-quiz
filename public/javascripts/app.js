@@ -20,7 +20,7 @@ var gulpAudio = new Audio("../audio/gulp.wav");
 // var correctAudio = new Audio("");
 // var countdownAudio = new Audio("");
 var explosionAudio = new Audio("../audio/explosion.mp3");
-// gulpAudio.play();
+var tickingAudio = new Audio("../audio/ticking.wav")
 
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -77,13 +77,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     function beginCountdown() {
         gameStart = setInterval(function () {
+            tickingAudio.play();
             timeRemaining--;
             console.log(timeRemaining)
             if (timeRemaining === 0) {
                 console.log('GAME OVER');
                 clearInterval(gameStart);
                 gameOver();
-
             }
         }, 1000);
     }
