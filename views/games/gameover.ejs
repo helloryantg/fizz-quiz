@@ -2,12 +2,14 @@
 
 <div class="gameover-page">
     <h1>TIME'S UP! DRINK!</h1>
-    <a href="/category">Play again?</a>
-    <div>
+    <div id="drinks-drank">
         <% if (!totalDrinks) { %>
             <p>You are SO smart!</p>
         <% } else { %>
-            <p>Total Drinks Drank: <%= totalDrinks %></p>
+            <p>Total Fizzes: <%= totalDrinks %></p>
         <% } %>
     </div>
+    <a class="play-again" href="/category">Play again?</a>
 </div>
+
+
