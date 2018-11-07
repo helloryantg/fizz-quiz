@@ -25,6 +25,12 @@ html {
   padding-bottom: 10%;
 }
 
+.images {
+  height: 120px;
+  width: 120px;
+  margin-bottom: 20px;
+}
+
 body {
   text-align: center;
   background-color: rgb(247, 247, 247);
@@ -32,8 +38,7 @@ body {
   background-image: url("../images/beer-background.jpg");
   background-size: cover;
   background-attachment: fixed;
-  /* min-height: 817px;
-  min-width: 463px; */
+  height: 100vh;
 }
 
 nav {
@@ -142,7 +147,7 @@ a {
 }
 
 #categories-page {
-  height: 81vh;
+  height: 82%;
   /* border: 1px solid black; */
   padding-top: 20px;
 
@@ -360,4 +365,29 @@ a {
   background-image: url("../images/beer-background.jpg");
   background-size: cover;
   background-attachment: fixed;
+}
+
+@media screen and (min-width: 768px) {
+  .images {
+    height: 80px;
+    width: 80px;
+    margin-bottom: 10px;
+  }
+}
+
+@media screen and (max-width: 520px) {
+  .categories-ctn {
+    min-width: 460px; 
+    min-height: 210px;
+  }
+}
+
+@media screen and (max-height: 860px) {
+  .categories-ctn {
+    min-height: 200px;
+  }
+
+  body {
+    min-height: 800px;
+  }
 }
