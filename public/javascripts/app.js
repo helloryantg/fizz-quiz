@@ -144,13 +144,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        if (e.target.innerHTML === correctAnswer) {
+        if (e.target.textContent === correctAnswer) {
             console.log('Correct!');
             renderCorrectPage();
             nextQuestion();
         } else {
             console.log('Try again!');
-            e.target.innerHTML = '';
+            e.target.textContent = '';
             renderWrongPage();
             incorrectAnswer();
         }
