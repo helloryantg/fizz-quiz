@@ -82,7 +82,8 @@ a {
   align-items: center;
   font-size: 35px;
   background-color: rgb(240,240,240);
-  color: white; 
+  color: black; 
+  text-decoration: none;
   font-family: 'Ropa Sans', sans-serif;
 }
 
