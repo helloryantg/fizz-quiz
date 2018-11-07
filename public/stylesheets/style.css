@@ -18,7 +18,7 @@ body {
   text-align: center;
   background-color: rgb(247, 247, 247);
   margin: 0 !important;
-  background-image: url("http://ajaxdistributing.com/wp-content/uploads/2017/10/beer-background-155355293.jpg");
+  background-image: url("../images/beer-background.jpg");
   background-size: cover;
   background-attachment: fixed;
   /* min-height: 817px;
@@ -252,7 +252,7 @@ a {
   top:        0; 
   left:       0; 
   position:   fixed;
-  background-image: url("http://ajaxdistributing.com/wp-content/uploads/2017/10/beer-background-155355293.jpg");
+  background-image: url("../images/beer-background.jpg");
   background-size: cover;
   background-attachment: fixed;
 
@@ -302,7 +302,7 @@ a {
   top:        0; 
   left:       0; 
   position:   fixed;
-  background-image: url("http://ajaxdistributing.com/wp-content/uploads/2017/10/beer-background-155355293.jpg");
+  background-image: url("../images/beer-background.jpg");
   background-size: cover;
   background-attachment: fixed;
 }

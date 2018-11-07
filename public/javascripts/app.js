@@ -34,17 +34,17 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Functions
     function generateQuestion() {
         fetch(`/api/newQuestion/${gameId}`)
-        .then(response => response.json())
-        .then(json => renderQuestion(json));   
+            .then(response => response.json())
+            .then(json => renderQuestion(json));
     }
-    
+
     function incorrectAnswer() {
         fetch(`/api/incorrectAnswer/${gameId}`, {
             method: 'POST',
             credentials: 'include'
         })
-        .then(response => response.json())
-        .then(question => console.log(question));
+            .then(response => response.json())
+            .then(question => console.log(question));
     }
 
     function firstCountdown() {
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         beginCountdown();
         generateQuestion();
     }
-  
+
     function beginCountdown() {
         gameStart = setInterval(function () {
             timeRemaining--;
@@ -93,7 +93,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         ];
 
         question.innerHTML = q.results[0].question;
-        
+
         if (q.results[0].incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             ans0.innerHTML = shuffledAnswers[0];
