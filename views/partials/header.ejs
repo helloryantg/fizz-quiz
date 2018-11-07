@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Fizz Quiz</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <div class="nav-div"></div>
-        <div class="nav-div" id="fizz-text">
-          <h1>The Fizz Quiz</h1>
-        </div>
-        <div class="nav-div" id="nav-img">
-            <img height="40" width="40" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO9SURBVGhD7ZrJrw1BFIcvEfO4EzFsTGFr4Y8gQRBiXLBG7EhYItg8Q4SNKYaNvQ3BwgIxxFpsDAvEHCLB73u5Jzmp1O3u6u53069zf8mX3FvDOaf7Vp2qrr6dgQYaqO9aKDbkQJvG66T4l8MJ0XjdFbHgPXdEozVGfBEW8AvxuAufrfyzoG1jtVhYsH/ERGHiM2VWv0g0VpuEBfqMgkCUWT1tG6lJ4oawQC+KUJRZPW3p01ddELfEZjGFAqdxYp94LyxI2CNCUebb0Ie+2PDCB77wie9atFL8Feb8h7gu1orl4qHwwcFPsUKEooy6sD02sLVGYBsfVodvYqgkMssj4Z1m8VTsFNNEL1FHG9rGbMQghkpZbocwY9yZT+6754PYJlKc0ZY+H0XMJr78SCCWUpou3gkzxEQdL1aLa+KboJz1Yb4oqwXC1hhsYhsf+PLJgViIKVlsI8wIi9xs4TVZrBMzhr9VEzawhU0vfPoFNnlrw2L1W5iB/SJFUwXD5qp40IXPlFGXInxbHMSUtJCeEdYZbousCezFQvdW+P4e6jaKIsInvn3/s6KwZon7wht4IsLhFeqw8H2yOCSyhC98+j7ERGxJmiD8Sg2vxFIRk9+eABN3SGztcqpb5tvwbBITPvDl2xILMZUSKfKY8AbJHmGaZSX2w4nd7hwRaq7w6wd9wgmOfLYEYqi0jpiOCDN6j4JA24XVfxUE3EvzBG2sPb9WKD+s8V2bDgozfI6CQGQkq2c45em0sPZXKAh0Xlj9AQrqks9isTtEerX62B0ORRq29tz9UH4EcNG1qTUXkje0GB5WT3bKk78xlykINGJDy9+h2GT3d5iJzITuJeq+C2u/RYTCh9XHRkCySHlHhRmFIumXFBvLXFzEc2Ht3ohY+n0trA0QQ+n0y+LDQ443mLUgsrj5tix+jG9+LWA4+QWRLfp6EdMSES6IxJK8ILIN8D8vFNmisO3wfXrBRZTZohBT0hbF53lI2TSyIRzJTSO/bGGxVf4lrHPqNp5xzyQmI5Fe4VK3LPXkxG/jiSn5POy4MAOxBysC4gBi5vC3asIGtsKLxKd/sCKmZPV61F0l2JLYxH0plomyoi82sIVNbOOjtkddFB4+9Doo4Phml0hJkWPFbuGPfjz4quXwAeEs5TiINaLocZA/1M6DGIilkrIO6BgWo+KAzpR3ZLpXlD0ypawvR6ZFRca5KSxIJmooP3lp2/dD7KLiLlqgo/a1AmrNix7SbytevaFWvAxFrXk93Zo/DAw0UHvU6fwHq2koScTqSHMAAAAASUVORK5CYII=">
-        </div>
-      </nav>
-    </header>
+
+<head>
+  <title>FizzQuizz</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <div class="nav-div"></div>
+      <div class="nav-div" id="fizz-text">
+        <h1 class="title">FizzQuizz</h1>
+      </div>
+      <div class="nav-div" id="nav-img">
+        <img height="40" width="40" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAO9SURBVGhD7ZrJrw1BFIcvEfO4EzFsTGFr4Y8gQRBiXLBG7EhYItg8Q4SNKYaNvQ3BwgIxxFpsDAvEHCLB73u5Jzmp1O3u6u53069zf8mX3FvDOaf7Vp2qrr6dgQYaqO9aKDbkQJvG66T4l8MJ0XjdFbHgPXdEozVGfBEW8AvxuAufrfyzoG1jtVhYsH/ERGHiM2VWv0g0VpuEBfqMgkCUWT1tG6lJ4oawQC+KUJRZPW3p01ddELfEZjGFAqdxYp94LyxI2CNCUebb0Ie+2PDCB77wie9atFL8Feb8h7gu1orl4qHwwcFPsUKEooy6sD02sLVGYBsfVodvYqgkMssj4Z1m8VTsFNNEL1FHG9rGbMQghkpZbocwY9yZT+6754PYJlKc0ZY+H0XMJr78SCCWUpou3gkzxEQdL1aLa+KboJz1Yb4oqwXC1hhsYhsf+PLJgViIKVlsI8wIi9xs4TVZrBMzhr9VEzawhU0vfPoFNnlrw2L1W5iB/SJFUwXD5qp40IXPlFGXInxbHMSUtJCeEdYZbousCezFQvdW+P4e6jaKIsInvn3/s6KwZon7wht4IsLhFeqw8H2yOCSyhC98+j7ERGxJmiD8Sg2vxFIRk9+eABN3SGztcqpb5tvwbBITPvDl2xILMZUSKfKY8AbJHmGaZSX2w4nd7hwRaq7w6wd9wgmOfLYEYqi0jpiOCDN6j4JA24XVfxUE3EvzBG2sPb9WKD+s8V2bDgozfI6CQGQkq2c45em0sPZXKAh0Xlj9AQrqks9isTtEerX62B0ORRq29tz9UH4EcNG1qTUXkje0GB5WT3bKk78xlykINGJDy9+h2GT3d5iJzITuJeq+C2u/RYTCh9XHRkCySHlHhRmFIumXFBvLXFzEc2Ht3ohY+n0trA0QQ+n0y+LDQ443mLUgsrj5tix+jG9+LWA4+QWRLfp6EdMSES6IxJK8ILIN8D8vFNmisO3wfXrBRZTZohBT0hbF53lI2TSyIRzJTSO/bGGxVf4lrHPqNp5xzyQmI5Fe4VK3LPXkxG/jiSn5POy4MAOxBysC4gBi5vC3asIGtsKLxKd/sCKmZPV61F0l2JLYxH0plomyoi82sIVNbOOjtkddFB4+9Doo4Phml0hJkWPFbuGPfjz4quXwAeEs5TiINaLocZA/1M6DGIilkrIO6BgWo+KAzpR3ZLpXlD0ypawvR6ZFRca5KSxIJmooP3lp2/dD7KLiLlqgo/a1AmrNix7SbytevaFWvAxFrXk93Zo/DAw0UHvU6fwHq2koScTqSHMAAAAASUVORK5CYII=">
+      </div>
+    </nav>
+  </header>
