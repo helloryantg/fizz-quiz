@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(30, 180);
+        timeRemaining = randomNumber(15, 45);
         beginCountdown();
         generateQuestion();
     }
@@ -169,6 +169,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     function gameOver() {
         explosionAudio.play();
+        timeupPage.style.display = 'block';
         setTimeout(function () {
             window.location.href = `/gameover/${gameId}`;
         }, 2000);
