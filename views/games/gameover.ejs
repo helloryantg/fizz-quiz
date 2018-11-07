@@ -3,6 +3,11 @@
 <div class="gameover-page">
     <h1>TIME'S UP! DRINK!</h1>
     <a href="/category">Play again?</a>
+    <div>
+        <% if (!totalDrinks) { %>
+            <p>You are SO smart!</p>
+        <% } else { %>
+            <p>Total Drinks Drank: <%= totalDrinks %></p>
+        <% } %>
+    </div>
 </div>
-
-<script src="/javascripts/app.js"></script>

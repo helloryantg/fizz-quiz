@@ -28,14 +28,10 @@ router.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });
-
 router.get('/category', isLoggedIn, gamesCtrl.showCategories);
 router.get('/instructions', gamesCtrl.showInstructions);
 router.get('/category/:catId', isLoggedIn, gamesCtrl.createGame);
-router.get('/api/newQuestion/:gameId', isLoggedIn, gamesCtrl.newQuestion);
-
-router.post('/api/incorrectAnswer/:gameId', isLoggedIn, gamesCtrl.incorrectAnswer);
-router.get('/gameover', isLoggedIn, gamesCtrl.gameOver);
+router.get('/gameover/:gameId', isLoggedIn, gamesCtrl.gameOver);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();
