@@ -13,7 +13,6 @@ var genQ;
 var correctAnswer;
 var wrongPage;
 var correctPage;
-
 // Event listeners
 
 // DOM elements retreived in page load event
@@ -24,6 +23,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
+    
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
@@ -62,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(30, 180);
+        timeRemaining = randomNumber(15, 180);
         beginCountdown();
         generateQuestion();
     }
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         correctPage.style.display = 'block';
         setTimeout(function () {
             correctPage.style.display = 'none';
-        }, 0500);
+        }, 1000);
     }
 
     firstCountdown();
