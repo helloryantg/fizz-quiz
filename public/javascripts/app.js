@@ -91,7 +91,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
             q.results[0].incorrect_answers[1],
             q.results[0].incorrect_answers[2]
         ];
-
+        
+        if (q.results[0].question.length > 140) {
+            question.style.fontSize = '225%';
+        }
+        
         question.innerHTML = q.results[0].question;
         
         if (q.results[0].incorrect_answers.length > 2) {
