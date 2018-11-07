@@ -24,10 +24,12 @@ body {
   background-image: url("http://ajaxdistributing.com/wp-content/uploads/2017/10/beer-background-155355293.jpg");
   background-size: cover;
   background-attachment: fixed;
+  /* min-height: 817px;
+  min-width: 463px; */
 }
 
 nav {
-  height: 5vh;
+  height: 6vh;
   min-height: 40px;
   display: flex;
   justify-content: space-between;
@@ -35,25 +37,32 @@ nav {
 
 .nav-div {
   width: 20%;
-  border: 1px solid black;
+  /* border: 1px solid black; */
 }
 
 #nav-img {
   display: flex;
   justify-content: center;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   align-items: center;
 }
 
 #fizz-text {
   width: 40%;
+  min-width: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 12px;
 }
 
 a {
   color: #00B7FF;
+}
+
+#header-title{
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 46px;
 }
 
 .categories-ctn {
@@ -66,14 +75,15 @@ a {
 .categories {
   height: 95%;
   width: 27%;
-  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
   border-radius: 8px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 35px;
-  background-color: rgb(220,220,220);
+  background-color: rgb(240,240,240);
   color: white; 
+  font-family: 'Ropa Sans', sans-serif;
 }
 
 .categories a {
@@ -82,65 +92,73 @@ a {
 }
 
 #category-text {
-  height: 4vh;
+  /* height: 4vh; */
 }
 
 #categories-page {
-  height: 95vh;
+  height: 90vh;
 }
 
-/* #pick-category {
-  height: 100px;
-  margin-top: 100px;
-} */
+#pick-category {
+  font-family: 'Ropa Sans', sans-serif;
+  font-size: 25px;
+}
 
 #random-cat {
   border: 5px dashed black;
 }
 
 #questions-container {
-  border: 1px dashed black;
+  /* border: 1px dashed black; */
   text-align: center;
   width: 100vw;
-  height: 99vh;
+  /* height: 99vh; */
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: center;
+  padding-top: 10px;
 }
 
 #q-ctn {
   height: 50vh;
-  width: 85%;
-  border: 1px solid black;
-  border-radius: 15px;
+  width: 81.7%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
   background-color: rgb(240, 240, 240);
   font-size: 48px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   line-height: 100px;
+  padding: 18px;
 }
 
 #a-ctn {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 85%;
   height: 40vh;
 }
 
 .answers {
-  border: 1px solid black;
-  border-radius: 20px;
+  /* border: 1px solid black; */
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35);
+  border-radius: 8px;
   height: 20%;
   background-color: rgb(240, 240, 240);
+  font-family: 'Ropa Sans', sans-serif;
   font-size: 36px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+}
+
+#questions {
+  font-family: 'Ropa Sans', sans-serif;
 }
 
 
@@ -154,14 +172,15 @@ a {
 }
 
 .index-text {
-  font-size: 24px;
-  border: 1px solid grey;
+  font-size: 20px;
   width: 150px;
   height: 50px;
-  border-radius: 8px;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: rgb(240, 240, 240);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
 .index-text a{
@@ -178,11 +197,16 @@ a {
   flex-direction: column;
 }
 
+#welcome-logo h1 {
+  font-size: 58px;
+}
+
 #welcome-page {
   height: 100vh;
   min-height: 800px;
   display: flex;
   flex-direction: column;
+  font-family: 'Ropa Sans', sans-serif;
 }
 
 #main-page {
@@ -191,17 +215,17 @@ a {
 
 #timer-page {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  /* justify-content: center;
+  align-items: flex-start; */
   z-index: 999;
   height: 100vh;
   width: 100%;
   position: absolute;
   top: 0;
-  background-color: rgb(252, 208, 86);
+  /* background-color: rgb(252, 208, 86); */
   border-radius: 20px;
   display: none;
-  font-size: 150px;
+  font-size: 300px;
 } 
 
 .timer-container {
@@ -210,7 +234,9 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
+  color: black;
+  font-family: 'Ropa Sans', sans-serif;
+
 }
 
 #wrong-page {
