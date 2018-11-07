@@ -13,7 +13,7 @@ var genQ;
 var correctAnswer;
 var wrongPage;
 var correctPage;
-// Event listeners
+
 
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -23,15 +23,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
     ans1 = document.getElementById('ans1');
     ans2 = document.getElementById('ans2');
     ans3 = document.getElementById('ans3');
+    wrongPage = document.getElementById('wrong-page');
+    correctPage = document.getElementById('correct-page');
+    timerPage = document.getElementById('timer-page');
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
     ans3.addEventListener('click', checkAnswer);
-    wrongPage = document.getElementById('wrong-page');
-    correctPage = document.getElementById('correct-page');
-    timerPage = document.getElementById('timer-page');
-
-    // Functions
+    
+    // Event listeners
     function generateQuestion() {
         fetch(`/api/newQuestion/${gameId}`)
         .then(response => response.json())
@@ -46,7 +46,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         .then(response => response.json())
         .then(question => console.log(question));
     }
-
+    
+    // Functions
     function firstCountdown() {
         timerPage.style.display = 'block';
         timer = 4;
@@ -61,7 +62,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(15, 180);
+        timeRemaining = randomNumber(15, 30);
         beginCountdown();
         generateQuestion();
     }
@@ -78,7 +79,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
 
-    // Randomizes number between min and max numbers
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + 1) + min;
     }
@@ -92,6 +92,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
             q.results[0].incorrect_answers[2]
         ];
 
+        if (q.results[0].question.length > 30) {
+            question.style.fontSize = '50%';
+        }
         question.innerHTML = q.results[0].question;
         
         if (q.results[0].incorrect_answers.length > 2) {
@@ -111,7 +114,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         console.log(correctAnswer);
     }
 
-    // Shuffles the array
     function shuffleArray(arr) {
         var newArr = arr;
         var currentIndex = newArr.length;
@@ -140,7 +142,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     }
 
-    // Goes to the next question
     function nextQuestion() {
         generateQuestion(function () {
             renderQuestion();
@@ -148,8 +149,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     function gameOver() {
-        // change this route for when deployed
-        window.location.href = '/gameover';
+        window.location.href = `/gameover/${gameId}`;
     }
 
     function renderWrongPage() {

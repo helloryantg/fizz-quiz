@@ -3,6 +3,12 @@
 <div class="gameover-page">
     <h1>TIME'S UP! DRINK!</h1>
     <a href="/category">Play again?</a>
-</div>
 
-<%- include('../partials/footer') %>
+    <div>
+        <% if (!totalDrinks) { %>
+            <p>You are SO smart!</p>
+        <% } else { %>
+            <p>Total Drinks Drank: <%= totalDrinks %></p>
+        <% } %>
+    </div>
+</div>
