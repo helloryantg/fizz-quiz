@@ -81,7 +81,7 @@ a {
   justify-content: center;
   align-items: center;
   font-size: 35px;
-  background-color: rgb(240,240,240);
+  background-color: rgba(240,240,240, 0.7);
   color: black; 
   text-decoration: none;
   font-family: 'Ropa Sans', sans-serif;
