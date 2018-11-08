@@ -1,2 +1,21 @@
-no partials
+<%- include('../partials/header') %>
 
+<div id="settings-page">
+    <div id="settings-text">
+        <h3>Thanks for playing our game!</h3>
+        <h2>If you enjoyed our game, please don't hesitate to reach out to us!</h2>
+        <p>This game was created and developed by:</p>
+        <ul>
+            <li>Danny Mayasich</li>
+            <li>Elizabeth Messick</li>
+            <li>Ryan Gonzales</li>
+        </ul>        
+    </div>
+
+    <div id="settings-buttons">
+        <a class="btn" href="/category">CHOOSE A CATEGORY</a>
+        <a class="btn" id="logout" href="/logout">LOGOUT</a>
+    </div>
+</div>
+
+<%- include('../partials/footer') %>
