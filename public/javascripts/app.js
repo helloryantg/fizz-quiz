@@ -104,9 +104,33 @@ document.addEventListener("DOMContentLoaded", function (e) {
             q.incorrect_answers[2]
         ];
 
+        // Working on this code
         if (q.question.length > 140) {
             question.style.fontSize = '225%';
+        } 
+
+        if (answersArr[0].length > 28) {
+            ans0.style.fontSize = '20%';
+        } else {
+            ans0.style.fontSize = '50px';
         }
+        if (answersArr[1].length > 28) {
+            ans1.style.fontSize = '20%';
+        } else {
+            ans1.style.fontSize = '50px';
+        }
+        if (answersArr[2].length > 28) {
+            ans2.style.fontSize = '20%';
+        } else {
+            ans2.style.fontSize = '50px';
+        }
+        if (answersArr[3].length > 28) {
+            ans3.style.fontSize = '20%';
+        } else {
+            ans3.style.fontSize = '50px';
+        }
+
+        // Code under construction
 
         question.innerHTML = q.question;
 
@@ -117,9 +141,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ans2.innerHTML = shuffledAnswers[2];
             ans3.innerHTML = shuffledAnswers[3];
         } else if (q.incorrect_answers.length <= 2) {
-            var shuffledAnswers = shuffleArray([q.correct_answer, q.incorrect_answers[0]])
-            ans0.innerHTML = shuffledAnswers[0];
-            ans1.innerHTML = shuffledAnswers[1];
+            if (answersArr[0] === 'True') {
+                ans0.innerHTML = answersArr[0];
+                ans1.innerHTML = answersArr[1];
+            } else {
+                ans0.innerHTML = answersArr[1];
+                ans1.innerHTML = answersArr[0];
+            }
             ans2.style.visibility = 'hidden';
             ans3.style.visibility = 'hidden';
         }
@@ -146,7 +174,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
         var decodedCorrectAnswer = decodeHTML(correctAnswer);
-        console.log(decodedCorrectAnswer);
         if (e.target.innerHTML === decodedCorrectAnswer) {
             renderCorrectPage();
             nextQuestion();
