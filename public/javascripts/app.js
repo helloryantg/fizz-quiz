@@ -9,7 +9,6 @@ var ans0;
 var ans1;
 var ans2;
 var ans3;
-var genQ;
 var correctAnswer;
 var wrongPage;
 var correctPage;
