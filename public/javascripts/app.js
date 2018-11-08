@@ -3,6 +3,7 @@ var timerPage;
 var wrongPage;
 var correctPage;
 var timeupPage;
+var mainPage;
 var countdown;
 var timeRemaining;
 var question;
@@ -31,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
     timeupPage = document.getElementById('timeup-page');
+    mainPage = document.getElementById('main-page');
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);
@@ -59,6 +61,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         var countInterval = setInterval(function () {
             timer--;
             countdown.innerHTML = timer;
+            // mainPage.style.backgroundColor 
             if (timer === 0) {
                 clearInterval(countInterval);
                 timerPage.style.display = 'none'
@@ -109,26 +112,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             question.style.fontSize = '225%';
         } 
 
-        if (answersArr[0].length > 28) {
-            ans0.style.fontSize = '20%';
-        } else {
-            ans0.style.fontSize = '50px';
-        }
-        if (answersArr[1].length > 28) {
-            ans1.style.fontSize = '20%';
-        } else {
-            ans1.style.fontSize = '50px';
-        }
-        if (answersArr[2].length > 28) {
-            ans2.style.fontSize = '20%';
-        } else {
-            ans2.style.fontSize = '50px';
-        }
-        if (answersArr[3].length > 28) {
-            ans3.style.fontSize = '20%';
-        } else {
-            ans3.style.fontSize = '50px';
-        }
+        
 
         // Code under construction
 
