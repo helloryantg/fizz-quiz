@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(15, 45);
+        timeRemaining = randomNumber(30, 180);
         beginCountdown();
         generateQuestion();
     }
