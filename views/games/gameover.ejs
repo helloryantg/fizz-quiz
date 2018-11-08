@@ -4,12 +4,16 @@
     <h1>TIME'S UP! DRINK!</h1>
     <div id="drinks-drank">
         <% if (!totalDrinks) { %>
-            <p>You are SO smart!</p>
+        <p>You are SO smart!</p>
         <% } else { %>
-            <p>Total Fizzes: <%= totalDrinks %></p>
+        <p>Total Fizzes:
+            <%= totalDrinks %>
+        </p>
         <% } %>
     </div>
     <a class="play-again" href="/category">Play again?</a>
 </div>
 
-
+<script>var laughingAudio = new Audio("/audio/laugh.wav");
+    laughingAudio.play();
+</script>
