@@ -104,10 +104,11 @@ a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 35px;
+  font-size: 60px;
   color: black; 
   text-decoration: none;
-  font-family: 'Ropa Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
+
 }
 
 .play-again {
@@ -141,6 +142,7 @@ a {
 
 #category-text h2 {
   margin-top: 10px;
+  font-family: 'PT Sans', sans-serif;
 }
 
 #categories-page {
@@ -176,6 +178,7 @@ a {
   justify-content: center;
   line-height: 100px;
   padding: 18px;
+  font-family: 'PT Sans', sans-serif;
 }
 
 #a-ctn {
@@ -192,8 +195,8 @@ a {
   border-radius: 8px;
   height: 20%;
   background-color: rgba(240, 240, 240, 0.7);
-  font-family: 'Ropa Sans', sans-serif;
-  font-size: 36px;
+  font-family: 'PT Sans', sans-serif;
+  font-size: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -201,7 +204,7 @@ a {
 }
 
 #questions {
-  font-family: 'Ropa Sans', sans-serif;
+  font-family: 'PT Sans', sans-serif;
 }
 
 
@@ -237,6 +240,8 @@ a {
 
 #welcome-logo h1 {
   font-size: 58px;
+  font-family: 'Ropa Sans', sans-serif;
+
 }
 
 #welcome-page {
@@ -244,7 +249,8 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Ropa Sans', sans-serif;
+  /* font-family: 'Ropa Sans', sans-serif; */
+  font-family: 'PT Sans', sans-serif;
 }
 
 #main-page {
@@ -277,6 +283,7 @@ a {
 
 #wrong-page {
   font-size: 75px;
+  font-family: 'PT Sans', sans-serif;
   border-radius: 20px;
   display: none;
   color: black;
@@ -370,10 +377,11 @@ a {
   }
 }
 
-@media screen and (max-height: 680px) {
+@media screen and (max-height: 680px), screen and (max-width: 501px) {
   #intro {
     font-size: 80%;
     min-height: 200px;
     min-width: 250px;
   }
 }
+
