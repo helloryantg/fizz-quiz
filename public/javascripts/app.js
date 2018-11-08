@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     function decodeHTML(html) {
         var txt = document.createElement('textarea');
         txt.innerHTML = html;
-        return txt.value;
+        return txt.textContent;
     }
 
     // Randomizes number between min and max numbers
@@ -120,8 +120,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
             var shuffledAnswers = shuffleArray([q.correct_answer, q.incorrect_answers[0]])
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
-            ans2.innerHTML = '';
-            ans3.innerHTML = '';
+            ans2.style.visibility = 'hidden';
+            ans3.style.visibility = 'hidden';
         }
         correctAnswer = q.correct_answer;
         console.log(correctAnswer);
@@ -145,20 +145,23 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        debugger
         var decodedCorrectAnswer = decodeHTML(correctAnswer);
         console.log(decodedCorrectAnswer);
         if (e.target.innerHTML === decodedCorrectAnswer) {
             renderCorrectPage();
             nextQuestion();
         } else {
-            e.target.innerHTML = '';
+            e.target.style.visibility = 'hidden';
             renderWrongPage();
             incorrectAnswer();
         }
     }
 
     function nextQuestion() {
+        ans0.style.visibility = 'visible';
+        ans1.style.visibility = 'visible';
+        ans2.style.visibility = 'visible';
+        ans3.style.visibility = 'visible';
         generateQuestion(function () {
             renderQuestion();
         });
