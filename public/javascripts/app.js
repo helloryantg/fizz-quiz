@@ -10,7 +10,6 @@ var ans0;
 var ans1;
 var ans2;
 var ans3;
-var genQ;
 var correctAnswer;
 // Audio variables
 var gulpAudio = new Audio("../audio/gulp.wav");
