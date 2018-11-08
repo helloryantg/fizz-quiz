@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        debugger
         var decodedCorrectAnswer = decodeHTML(correctAnswer);
         console.log(decodedCorrectAnswer);
         if (e.target.innerHTML === decodedCorrectAnswer) {
