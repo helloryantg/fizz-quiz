@@ -349,10 +349,9 @@ a {
 #game-play{
   margin-top: 50px;
   border-radius: 8px;
-  padding: 10px 20px;
-  background-color: rgba(240, 240, 240, 0.3);
+  padding: 20px 30px;
+  background-color: rgba(240, 240, 240, 0.2);
 }
-
 
 #settings-buttons {
   display: flex;
@@ -384,6 +383,10 @@ a {
     height: 80px;
     width: 80px;
     margin-bottom: 10px;
+  }
+  #game-play {
+    margin: 50px 60px;
+    padding: 20px 50px;
   }
 }
 
