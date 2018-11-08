@@ -396,11 +396,11 @@ a {
   }
 }
 
-@media screen and (max-height: 860px) {
+/* @media screen and (max-height: 860px) {
   body {
     min-height: 800px;
   }
-}
+} */
 
 @media screen and (max-height: 680px), screen and (max-width: 501px) {
   #intro {
