@@ -198,6 +198,8 @@ a {
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+  word-wrap: break-word;
+  padding: 0 20px;
 }
 
 #index-text-wrap {
