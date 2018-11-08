@@ -348,10 +348,10 @@ a {
 
 #game-play{
   margin-top: 50px;
-  margin-bottom: 50px;
   border-radius: 8px;
   padding: 10px 20px;
   background-color: rgba(240, 240, 240, 0.3);
+}
 
 
 #settings-buttons {
@@ -407,4 +407,5 @@ a {
     min-width: 250px;
   }
 }
+
 
