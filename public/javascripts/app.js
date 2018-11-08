@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(15, 45);
+        timeRemaining = randomNumber(30, 180);
         beginCountdown();
         generateQuestion();
     }
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     function decodeHTML(html) {
         var txt = document.createElement('textarea');
         txt.innerHTML = html;
-        return txt.value;
+        return txt.textContent;
     }
 
     // Randomizes number between min and max numbers
@@ -145,7 +145,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
-        debugger
         var decodedCorrectAnswer = decodeHTML(correctAnswer);
         console.log(decodedCorrectAnswer);
         if (e.target.innerHTML === decodedCorrectAnswer) {
