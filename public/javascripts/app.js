@@ -1,9 +1,10 @@
 // Cached DOM elements
 var timerPage;
+var wrongPage;
+var correctPage;
+var timeupPage;
 var countdown;
-var timer;
 var timeRemaining;
-var gameStart;
 var question;
 var ans0;
 var ans1;
@@ -11,9 +12,6 @@ var ans2;
 var ans3;
 var genQ;
 var correctAnswer;
-var wrongPage;
-var correctPage;
-var timeupPage;
 // Audio variables
 var gulpAudio = new Audio("../audio/gulp.wav");
 // var incorrectAudio = new Audio("");
@@ -43,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     function generateQuestion() {
         fetch(`/api/newQuestion/${gameId}`)
             .then(response => response.json())
-            .then(json => renderQuestion(json));
+            .then(question => renderQuestion(question));
     }
 
     function incorrectAnswer() {
@@ -58,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Functions
     function firstCountdown() {
         timerPage.style.display = 'block';
-        timer = 4;
+        var timer = 4;
         var countInterval = setInterval(function () {
             timer--;
             countdown.innerHTML = timer;
@@ -76,13 +74,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     function beginCountdown() {
-        gameStart = setInterval(function () {
+        var timerId = setInterval(function () {
             tickingAudio.play();
             timeRemaining--;
             console.log(timeRemaining)
             if (timeRemaining === 0) {
-                console.log('GAME OVER');
-                clearInterval(gameStart);
+                clearInterval(timerId);
                 gameOver();
             }
         }, 1000);
@@ -92,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         var txt = document.createElement('textarea');
         txt.innerHTML = html;
         return txt.value;
-    };
+    }
 
     // Randomizes number between min and max numbers
     function randomNumber(min, max) {
@@ -102,32 +99,32 @@ document.addEventListener("DOMContentLoaded", function (e) {
     // Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
     function renderQuestion(q) {
         var answersArr = [
-            q.results[0].correct_answer,
-            q.results[0].incorrect_answers[0],
-            q.results[0].incorrect_answers[1],
-            q.results[0].incorrect_answers[2]
+            q.correct_answer,
+            q.incorrect_answers[0],
+            q.incorrect_answers[1],
+            q.incorrect_answers[2]
         ];
 
-        if (q.results[0].question.length > 140) {
+        if (q.question.length > 140) {
             question.style.fontSize = '225%';
         }
 
-        question.innerHTML = q.results[0].question;
+        question.innerHTML = q.question;
 
-        if (q.results[0].incorrect_answers.length > 2) {
+        if (q.incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = shuffledAnswers[2];
             ans3.innerHTML = shuffledAnswers[3];
-        } else if (q.results[0].incorrect_answers.length <= 2) {
-            var shuffledAnswers = shuffleArray([q.results[0].correct_answer, q.results[0].incorrect_answers[0]])
+        } else if (q.incorrect_answers.length <= 2) {
+            var shuffledAnswers = shuffleArray([q.correct_answer, q.incorrect_answers[0]])
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = '';
             ans3.innerHTML = '';
         }
-        correctAnswer = q.results[0].correct_answer;
+        correctAnswer = q.correct_answer;
         console.log(correctAnswer);
     }
 
@@ -149,6 +146,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
+        debugger
         var decodedCorrectAnswer = decodeHTML(correctAnswer);
         console.log(decodedCorrectAnswer);
         if (e.target.innerHTML === decodedCorrectAnswer) {
