@@ -13,12 +13,12 @@ var ans2;
 var ans3;
 var correctAnswer;
 // Audio variables
-var gulpAudio = new Audio("../audio/gulp.wav");
+var gulpAudio = new Audio("/audio/gulp.wav");
 // var incorrectAudio = new Audio("");
 // var correctAudio = new Audio("");
 // var countdownAudio = new Audio("");
-var explosionAudio = new Audio("../audio/explosion.mp3");
-var tickingAudio = new Audio("../audio/ticking.wav")
+var explosionAudio = new Audio("/audio/explosion.mp3");
+var tickingAudio = new Audio("/audio/ticking.wav");
 
 // DOM elements retreived in page load event
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -110,9 +110,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         // Working on this code
         if (q.question.length > 140) {
             question.style.fontSize = '225%';
-        } 
+        }
 
-        
+
 
         // Code under construction
 
