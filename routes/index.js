@@ -28,6 +28,7 @@ router.get('/category', isLoggedIn, gamesCtrl.showCategories);
 router.get('/instructions', gamesCtrl.showInstructions);
 router.get('/category/:catId', isLoggedIn, gamesCtrl.createGame);
 router.get('/gameover/:gameId', isLoggedIn, gamesCtrl.gameOver);
+router.get('/settings', gamesCtrl.settings);
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) return next();

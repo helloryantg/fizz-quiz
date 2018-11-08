@@ -109,26 +109,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             question.style.fontSize = '225%';
         } 
 
-        if (answersArr[0].length > 28) {
-            ans0.style.fontSize = '20%';
-        } else {
-            ans0.style.fontSize = '50px';
-        }
-        if (answersArr[1].length > 28) {
-            ans1.style.fontSize = '20%';
-        } else {
-            ans1.style.fontSize = '50px';
-        }
-        if (answersArr[2].length > 28) {
-            ans2.style.fontSize = '20%';
-        } else {
-            ans2.style.fontSize = '50px';
-        }
-        if (answersArr[3].length > 28) {
-            ans3.style.fontSize = '20%';
-        } else {
-            ans3.style.fontSize = '50px';
-        }
+        
 
         // Code under construction
 
