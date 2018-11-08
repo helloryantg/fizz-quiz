@@ -4,7 +4,8 @@ module.exports = {
     showCategories,
     showInstructions,
     createGame,
-    gameOver
+    gameOver,
+    settings
 }
 
 function showCategories(req, res) {
@@ -31,4 +32,8 @@ function gameOver(req, res) {
         var totalDrinks = game.questions.reduce((acc, q) => acc + q.numDrinks, 0);
         res.render('games/gameover', {totalDrinks});
     });
+}
+
+function settings(req, res) {
+    res.render('games/settings');
 }
