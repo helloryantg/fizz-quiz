@@ -26,7 +26,7 @@ html {
   background-color: rgba(240,240,240, 0.7);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  padding: 10px 20px;;
+  padding: 10px 20px;
 }
 
 .images {
@@ -239,7 +239,6 @@ a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* font-family: 'Ropa Sans', sans-serif; */
 }
 
 #main-page {
@@ -346,15 +345,14 @@ a {
   background-attachment: fixed;
 }
 
-#instructions{
-  background-image: url("../images/beer-background.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-}
 
-#game-play {
-  background-color: rgba(240, 240, 240, 0.7);
-}
+#game-play{
+  margin-top: 50px;
+  margin-bottom: 50px;
+  border-radius: 8px;
+  padding: 10px 20px;
+  background-color: rgba(240, 240, 240, 0.3);
+
 
 #settings-buttons {
   display: flex;
