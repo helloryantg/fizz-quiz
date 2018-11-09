@@ -113,29 +113,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (q.incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             
-            if (answersArr[0].length > 20) {
+            if (answersArr[0].length > 30) {
                 ans0.style.fontSize = '40px';
             }
-            if (answersArr[1].length > 20) {
+            if (answersArr[1].length > 30) {
                 ans1.style.fontSize = '40px';
             }
-            if (answersArr[2].length > 20) {
+            if (answersArr[2].length > 30) {
                 ans2.style.fontSize = '40px';
             }
-            if (answersArr[3].length > 20) {
+            if (answersArr[3].length > 30) {
                 ans3.style.fontSize = '40px';
             }
 
-            if (answersArr[0].length > 30) {
-                ans0.style.fontSize = '30px';
+            if (answersArr[0].length > 40) {
+                ans0.style.fontSize = '40px';
             }
-            if (answersArr[1].length > 30) {
-                ans1.style.fontSize = '30px';
+            if (answersArr[1].length > 40) {
+                ans1.style.fontSize = '40px';
             }
-            if (answersArr[2].length > 30) {
-                ans2.style.fontSize = '30px';
+            if (answersArr[2].length > 40) {
+                ans2.style.fontSize = '40px';
             }
-            if (answersArr[3].length > 30) {
+            if (answersArr[3].length > 40) {
                 ans3.style.fontSize = '30px';
             }
 
