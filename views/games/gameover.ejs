@@ -1,15 +1,20 @@
 <%- include('../partials/header') %>
 
 <div class="gameover-page">
-    <h1>TIME'S UP! DRINK!</h1>
+    <div id="time-up-wrap">
+        <h1 id="time-up">TIME'S UP! DRINK!</h1>
+    </div>
+    <img id="face" src="https://i.imgur.com/JsyaFcH.png" title="source: imgur.com" />
     <div id="drinks-drank">
         <% if (!totalDrinks) { %>
             <p>You are SO smart!</p>
         <% } else { %>
-            <p>Total Fizzes: <%= totalDrinks %></p>
+            <p>Total Drinks: <%= totalDrinks %></p>
         <% } %>
     </div>
-    <a class="play-again" href="/category">Play again?</a>
+    <div id="play-again-wrap">
+        <a class="play-again" href="/category">Play again?</a>
+    </div>
 </div>
 
 
