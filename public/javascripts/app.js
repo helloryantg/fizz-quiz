@@ -60,8 +60,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         var timer = 4;
         var countInterval = setInterval(function () {
             timer--;
-            countdown.innerHTML = timer;
-            // mainPage.style.backgroundColor 
+            countdown.textContent = timer;
             if (timer === 0) {
                 clearInterval(countInterval);
                 timerPage.style.display = 'none'
@@ -93,12 +92,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
         return txt.textContent;
     }
 
-    // Randomizes number between min and max numbers
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + 1) + min;
     }
 
-    // Places correct answer and wrong answers inside an array and shuffles them. Also renders them onto the page
     function renderQuestion(q) {
         var answersArr = [
             q.correct_answer,
@@ -116,16 +113,29 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (q.incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             
-            if (answersArr[0].length > 28) {
-                ans0.style.fontSize = '20px';
+            if (answersArr[0].length > 20) {
+                ans0.style.fontSize = '40px';
             }
-            if (answersArr[1].length > 28) {
+            if (answersArr[1].length > 20) {
+                ans1.style.fontSize = '40px';
+            }
+            if (answersArr[2].length > 20) {
+                ans2.style.fontSize = '40px';
+            }
+            if (answersArr[3].length > 20) {
+                ans3.style.fontSize = '40px';
+            }
+
+            if (answersArr[0].length > 30) {
+                ans0.style.fontSize = '30px';
+            }
+            if (answersArr[1].length > 30) {
                 ans1.style.fontSize = '30px';
             }
-            if (answersArr[2].length > 28) {
+            if (answersArr[2].length > 30) {
                 ans2.style.fontSize = '30px';
             }
-            if (answersArr[3].length > 28) {
+            if (answersArr[3].length > 30) {
                 ans3.style.fontSize = '30px';
             }
 
@@ -164,7 +174,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         return newArr;
     }
 
-    // Checks the answer for when the event listener is clicked
     function checkAnswer(e) {
         var decodedCorrectAnswer = decodeHTML(correctAnswer);
         if (e.target.innerHTML === decodedCorrectAnswer) {
@@ -178,13 +187,25 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     function nextQuestion() {
+        resetAnswersVisibility();
+        resetAnswersFontSize();
+        generateQuestion(function () {
+            renderQuestion();
+        });
+    }
+    
+    function resetAnswersVisibility() {
         ans0.style.visibility = 'visible';
         ans1.style.visibility = 'visible';
         ans2.style.visibility = 'visible';
         ans3.style.visibility = 'visible';
-        generateQuestion(function () {
-            renderQuestion();
-        });
+    }
+    
+    function resetAnswersFontSize() {
+        ans0.style.fontSize = '50px';
+        ans1.style.fontSize = '50px';
+        ans2.style.fontSize = '50px';
+        ans3.style.fontSize = '50px';
     }
 
     function gameOver() {
