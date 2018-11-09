@@ -108,17 +108,33 @@ document.addEventListener("DOMContentLoaded", function (e) {
             q.incorrect_answers[2]
         ];
 
-        // Working on this code
         if (q.question.length > 140) {
             question.style.fontSize = '225%';
         }
 
+<<<<<<< HEAD
         // Code under construction
 
+=======
+>>>>>>> master
         question.innerHTML = q.question;
 
         if (q.incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
+            
+            if (answersArr[0].length > 28) {
+                ans0.style.fontSize = '20px';
+            }
+            if (answersArr[1].length > 28) {
+                ans1.style.fontSize = '30px';
+            }
+            if (answersArr[2].length > 28) {
+                ans2.style.fontSize = '30px';
+            }
+            if (answersArr[3].length > 28) {
+                ans3.style.fontSize = '30px';
+            }
+
             ans0.innerHTML = shuffledAnswers[0];
             ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = shuffledAnswers[2];

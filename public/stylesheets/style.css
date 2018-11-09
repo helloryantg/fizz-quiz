@@ -14,19 +14,20 @@ html {
 }
 
 #intro{
-  color: black;
-  font-size: 20px;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
   line-height: 35px;
   text-align: center;
-  width: 50%;
+  width: 70%;
   display: flex;
   justify-content: center;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  background-color: rgba(240,240,240, 0.7);
+  /* margin-top: 50px; */
+  /* margin-bottom: 50px; */
+  background-color: rgba(167, 99, 81, 1);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
   border-radius: 8px;
-  padding: 10px 20px;
+  padding: 10px 5px;
 }
 
 .images {
@@ -46,11 +47,11 @@ body {
 }
 
 nav {
-  height: 10vh;
+  height: 20vh;
   min-height: 40px;
   display: flex;
   justify-content: space-between;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 }
 
 .nav-div {
@@ -69,11 +70,11 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-top: 12px;
+  /* padding-top: 12px; */
 }
 
 #fizz-text h1 {
-  font-size: 80px;
+  font-size: 140px;
 }
 
 a {
@@ -134,11 +135,6 @@ a {
   color: black;
 }
 
-#category-text {
-  font-family: 'Ropa Sans', sans-serif;
-  font-size: 40px;  
-}
-
 #category-text h2 {
   margin-top: 10px;
 }
@@ -146,7 +142,6 @@ a {
 #categories-page {
   height: 78%;
   padding-top: 20px;
-
 }
 
 #random-cat {
@@ -198,6 +193,8 @@ a {
   flex-direction: column;
   justify-content: center;
   cursor: pointer;
+  word-wrap: break-word;
+  padding: 0 20px;
 }
 
 #index-text-wrap {
@@ -243,7 +240,7 @@ a {
 }
 
 #main-page {
-  height: 86vh;
+  height: 78vh;
   margin-top: 18px;
 }
 
@@ -390,6 +387,11 @@ a {
   text-decoration: none;
 }
 
+#first-beer {
+  height: 200px;
+  width: 200px;
+}
+
 @media screen and (min-width: 768px) {
   .images {
     height: 80px;
@@ -407,6 +409,12 @@ a {
   }
 }
 
+@media screen and (min-width: 414px) {
+  #categories-page {
+    height: 75%;
+  }
+}
+
 @media screen and (max-width: 520px) {
   .categories-ctn {
     min-width: 460px; 
@@ -414,18 +422,25 @@ a {
   }
 }
 
-@media screen and (max-height: 860px) {
-  body {
-    min-height: 800px;
+@media screen and (min-width: 550px) {
+  #intro {
+    max-width: 480px;
   }
 }
 
-@media screen and (max-height: 680px), screen and (max-width: 501px) {
+
+/* @media screen and (max-height: 860px) {
+  body {
+    min-height: 800px;
+  }
+} */
+
+/* @media screen and (max-height: 680px), screen and (max-width: 501px) {
   #intro {
     font-size: 80%;
     min-height: 200px;
     min-width: 250px;
   }
-}
+} */
 
 
