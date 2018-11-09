@@ -12,6 +12,7 @@ var ans1;
 var ans2;
 var ans3;
 var correctAnswer;
+
 // Audio variables
 var incorrectAudio = new Audio("/audio/wrong.wav");
 var correctAudio = new Audio("/audio/correct.wav");
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         timerPage.style.display = 'block';
         var timer = 3;
         countdown.innerHTML = 3;
-        var countInterval = setInterval(function () {
+        var countInterval = setInterval(function() {
             timer--;
             countdown.textContent = timer;
             if (timer === 0) {
@@ -87,12 +88,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
 
-    function decodeHTML(html) {
-        var txt = document.createElement('textarea');
-        txt.innerHTML = html;
-        return txt.textContent;
-    }
-
     function randomNumber(min, max) {
         return Math.floor(Math.random() * (max - min) + 1) + min;
     }
@@ -109,39 +104,33 @@ document.addEventListener("DOMContentLoaded", function (e) {
             question.style.fontSize = '225%';
         }
 
-<<<<<<< HEAD
-        // Code under construction
-
-=======
->>>>>>> master
         question.innerHTML = q.question;
 
         if (q.incorrect_answers.length > 2) {
             var shuffledAnswers = shuffleArray(answersArr);
             
-            if (answersArr[0].length > 20) {
+            if (answersArr[0].length > 30) {
                 ans0.style.fontSize = '40px';
             }
-            if (answersArr[1].length > 20) {
+            if (answersArr[1].length > 30) {
                 ans1.style.fontSize = '40px';
             }
-            if (answersArr[2].length > 20) {
+            if (answersArr[2].length > 30) {
                 ans2.style.fontSize = '40px';
             }
-            if (answersArr[3].length > 20) {
+            if (answersArr[3].length > 30) {
                 ans3.style.fontSize = '40px';
             }
-
-            if (answersArr[0].length > 30) {
-                ans0.style.fontSize = '30px';
+            if (answersArr[0].length > 40) {
+                ans0.style.fontSize = '40px';
             }
-            if (answersArr[1].length > 30) {
-                ans1.style.fontSize = '30px';
+            if (answersArr[1].length > 40) {
+                ans1.style.fontSize = '40px';
             }
-            if (answersArr[2].length > 30) {
-                ans2.style.fontSize = '30px';
+            if (answersArr[2].length > 40) {
+                ans2.style.fontSize = '40px';
             }
-            if (answersArr[3].length > 30) {
+            if (answersArr[3].length > 40) {
                 ans3.style.fontSize = '30px';
             }
 
@@ -149,6 +138,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ans1.innerHTML = shuffledAnswers[1];
             ans2.innerHTML = shuffledAnswers[2];
             ans3.innerHTML = shuffledAnswers[3];
+
         } else if (q.incorrect_answers.length <= 2) {
             if (answersArr[0] === 'True') {
                 ans0.innerHTML = answersArr[0];
@@ -160,6 +150,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
             ans2.style.visibility = 'hidden';
             ans3.style.visibility = 'hidden';
         }
+
         correctAnswer = q.correct_answer;
         console.log(correctAnswer);
     }
@@ -190,6 +181,12 @@ document.addEventListener("DOMContentLoaded", function (e) {
             renderWrongPage();
             incorrectAnswer();
         }
+    }
+
+    function decodeHTML(html) {
+        var txt = document.createElement('textarea');
+        txt.innerHTML = html;
+        return txt.textContent;
     }
 
     function nextQuestion() {
