@@ -3,7 +3,6 @@ var timerPage;
 var wrongPage;
 var correctPage;
 var timeupPage;
-var mainPage;
 var countdown;
 var timeRemaining;
 var question;
@@ -32,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
     correctPage = document.getElementById('correct-page');
     timerPage = document.getElementById('timer-page');
     timeupPage = document.getElementById('timeup-page');
-    mainPage = document.getElementById('main-page');
     ans0.addEventListener('click', checkAnswer);
     ans1.addEventListener('click', checkAnswer);
     ans2.addEventListener('click', checkAnswer);

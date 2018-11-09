@@ -69,7 +69,6 @@ nav {
   min-height: 40px;
   display: flex;
   justify-content: space-between;
-  /* margin-top: 10px; */
 }
 
 .nav-div {
@@ -88,7 +87,6 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* padding-top: 12px; */
 }
 
 #fizz-text h1 {
@@ -140,7 +138,6 @@ a {
 .play-again {
   height: 30%;
   width: 50%;
-  /* margin: 0 auto; */
   background-color: rgba(240,240,240, 0.7);  
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
   display: flex;
@@ -391,7 +388,6 @@ a {
   margin-bottom: 15%;
 }
 
-/* Copied from above */
 #timeup-page {
   font-size: 100px;
   border-radius: 20px;
@@ -466,8 +462,6 @@ a {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
 }
 
-
-
 #first-beer {
   height: 200px;
   width: 200px;
@@ -526,5 +520,3 @@ a {
     max-width: 480px;
   }
 }
-
-

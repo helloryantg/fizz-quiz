@@ -1,10 +1,12 @@
 ## FizzQuizz 
-![Image of game play screen]()
 
 ## Description
 - FizzQuizz: The world’s first hot-potato-style-trivia-drinking-game! Two teams face off to answer as many trivia questions as possible before the timer runs out. Choose a wrong answer? Drink! Timer runs out while you’re holding the phone? Drink!
 
-![Image of winning screen]()
+<img src="./public/images/IMG_0362.PNG" height="500" width="300">
+<img src="./public/images/IMG_0363.PNG" height="500" width="300">
+<img src="./public/images/IMG_0364.PNG" height="500" width="300">
+
 
 ## Technologies Used 
 - HTML5
@@ -19,12 +21,16 @@
 [Trello Board](https://trello.com/b/3a0lVJRF/project-3)
 
 ## Getting Started 
-[Click to play!]()
+[Click to play!](https://fizzquizz.herokuapp.com)
 
 - To start game, you must log in using a gmail account and then you must click on a category
 - Once a category is picked,a 3 second countdown will start the game. The game can be   anywhere from 30 seconds to 3 minutes long.
 - When the game is over you can click "play again?" button to play again  
 ![Image of initial screen]()
+
+<img src="./public/images/IMG_0367.PNG" height="500" width="300">
+<img src="./public/images/IMG_0370.PNG" height="500" width="300">
+<img src="./public/images/IMG_0369.PNG" height="500" width="300">
 
 ## API endpoints (Open Trivia Database)
 - Animals: https://opentdb.com/api.php?amount=1&category=27
@@ -36,8 +42,6 @@
 - TV: https://opentdb.com/api.php?amount=1&category=14
 - Sports: https://opentdb.com/api.php?amount=1&category=21
 - Music: https://opentdb.com/api.php?amount=1&category=12
-
-
 
 ## Next Steps
 - Add animations
