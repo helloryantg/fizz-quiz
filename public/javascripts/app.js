@@ -13,10 +13,9 @@ var ans2;
 var ans3;
 var correctAnswer;
 // Audio variables
-var gulpAudio = new Audio("/audio/gulp.wav");
-// var incorrectAudio = new Audio("");
-// var correctAudio = new Audio("");
-// var countdownAudio = new Audio("");
+var incorrectAudio = new Audio("/audio/wrong.wav");
+var correctAudio = new Audio("/audio/correct.wav");
+var countdownAudio = new Audio("/audio/countdown.wav");
 var explosionAudio = new Audio("/audio/explosion.mp3");
 var tickingAudio = new Audio("/audio/ticking.wav");
 
@@ -56,8 +55,10 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     // Functions
     function firstCountdown() {
+        countdownAudio.play();
         timerPage.style.display = 'block';
-        var timer = 4;
+        var timer = 3;
+        countdown.innerHTML = 3;
         var countInterval = setInterval(function () {
             timer--;
             countdown.textContent = timer;
@@ -108,6 +109,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
             question.style.fontSize = '225%';
         }
 
+<<<<<<< HEAD
+        // Code under construction
+
+=======
+>>>>>>> master
         question.innerHTML = q.question;
 
         if (q.incorrect_answers.length > 2) {
@@ -217,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     function renderWrongPage() {
+        incorrectAudio.play();
         wrongPage.style.display = 'block';
         setTimeout(function () {
             wrongPage.style.display = 'none';
@@ -224,10 +231,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
     }
 
     function renderCorrectPage() {
+        correctAudio.play();
         correctPage.style.display = 'block';
         setTimeout(function () {
             correctPage.style.display = 'none';
-        }, 1000);
+        }, 2000);
     }
 
     firstCountdown();
