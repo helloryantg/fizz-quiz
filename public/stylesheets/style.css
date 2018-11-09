@@ -294,9 +294,20 @@ a {
   font-family: 'Ropa Sans', sans-serif;
 }
 
-.wrong-text {
-  height: 15%;
-  width: 100%;
+.wrong-text-wrap {
+  font-size: 60px;
+  font-weight: bold;
+  text-align: center;
+  width: 65%;
+  height: 150px;
+  background: linear-gradient(to right, rgba(189, 97, 55),rgba(148, 70, 36));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
 #wrong-page {
@@ -354,7 +365,6 @@ a {
   align-items: center;
   height: 100vh;
   width: 100%;
-  color: white;
   z-index: 2;
   top: 0; 
   left: 0; 
@@ -362,7 +372,23 @@ a {
 }
 
 #correct-text {
-  color: rgb(122, 184, 55);
+  color: white;
+}
+
+.correct-text-wrap {
+  font-size: 80px;
+  font-weight: bold;
+  text-align: center;
+  width: 65%;
+  height: 150px;
+  background: linear-gradient(to right, rgba(176, 207, 77),rgba(124, 188, 55));
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 15%;
+  margin-bottom: 15%;
 }
 
 /* Copied from above */
@@ -450,6 +476,7 @@ a {
 
   #red-cup {
     max-height: 30%;
+    margin-left: 7%;
   }
   
   #game-play {

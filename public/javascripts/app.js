@@ -70,7 +70,8 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }, 1000);
     }
     function renderGame() {
-        timeRemaining = randomNumber(30, 180);
+        // timeRemaining = randomNumber(30, 180);
+        timeRemaining = randomNumber(3000, 180,000);
         beginCountdown();
         generateQuestion();
     }
@@ -109,11 +110,6 @@ document.addEventListener("DOMContentLoaded", function (e) {
             question.style.fontSize = '225%';
         }
 
-<<<<<<< HEAD
-        // Code under construction
-
-=======
->>>>>>> master
         question.innerHTML = q.question;
 
         if (q.incorrect_answers.length > 2) {
