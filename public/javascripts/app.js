@@ -13,7 +13,6 @@ var ans2;
 var ans3;
 var correctAnswer;
 // Audio variables
-var gulpAudio = new Audio("/audio/gulp.wav");
 var incorrectAudio = new Audio("/audio/wrong.wav");
 var correctAudio = new Audio("/audio/correct.wav");
 var countdownAudio = new Audio("/audio/countdown.wav");
