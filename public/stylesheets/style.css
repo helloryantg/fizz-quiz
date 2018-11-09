@@ -264,15 +264,12 @@ a {
   justify-content: center;
   align-items: center;
   font-family: 'Ropa Sans', sans-serif;
-
 }
 
 .wrong-text {
   height: 15%;
   width: 100%;
 }
-
-
 
 #wrong-page {
   font-size: 400%;
