@@ -34,12 +34,27 @@
          80% { transform: rotate(-5deg); } 
          100% { transform: rotate(0deg); } 
       }
+
+      @-webkit-keyframes fadeIn {
+        0% {opacity: 0.3;}
+        100% {opacity: 1;}
+      }
+        
+      @keyframes fadeIn {
+        0% {opacity: 0.3;}
+        100% {opacity: 1;}
+      }
+        
+      .fadeIn {
+        -webkit-animation-name: fadeIn;
+        animation-name: fadeIn;
+      }
       
       .swing { 
-         -webkit-transform-origin: top center; 
-         transform-origin: top center; 
-         -webkit-animation-name: swing; 
-         animation-name: swing; 
+        -webkit-transform-origin: top center; 
+        transform-origin: top center; 
+        -webkit-animation-name: swing; 
+        animation-name: swing; 
       }
    </style>
 </head>
