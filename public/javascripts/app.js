@@ -206,7 +206,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         correctPage.style.display = 'block';
         setTimeout(function () {
             correctPage.style.display = 'none';
-        }, 1000);
+        }, 2000);
     }
 
     firstCountdown();
